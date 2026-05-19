@@ -11,6 +11,9 @@ export function buildPageMetadata(page: SitePageConfig): Metadata {
 		keywords: [...page.keywords],
 		alternates: {
 			canonical,
+			languages: {
+				"en-US": canonical,
+			},
 		},
 		openGraph: {
 			title: page.title,
@@ -19,15 +22,31 @@ export function buildPageMetadata(page: SitePageConfig): Metadata {
 			siteName: SITE_BUSINESS_NAME,
 			locale: "en_US",
 			type: "website",
+			images: [
+				{
+					url: "/opengraph-image",
+					width: 1200,
+					height: 630,
+					alt: page.title,
+				},
+			],
 		},
 		twitter: {
-			card: "summary",
+			card: "summary_large_image",
 			title: page.title,
 			description: page.description,
+			images: ["/opengraph-image"],
 		},
 		robots: {
 			index: true,
 			follow: true,
+			googleBot: {
+				index: true,
+				follow: true,
+				"max-image-preview": "large",
+				"max-snippet": -1,
+				"max-video-preview": -1,
+			},
 		},
 	};
 }

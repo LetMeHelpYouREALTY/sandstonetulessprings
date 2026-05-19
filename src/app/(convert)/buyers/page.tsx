@@ -19,6 +19,7 @@ export default function BuyersPage() {
 	return (
 		<MarketingPage
 			page={SITE_PAGES.buyers}
+			showOfficeListings
 			lead={
 				<p>
 					{AGENT_NAME} provides independent Nevada buyer representation for new

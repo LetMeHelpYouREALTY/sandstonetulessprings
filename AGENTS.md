@@ -58,16 +58,34 @@ Registry: `src/lib/site-pages.ts` (also drives `SITEMAP_ROUTES` and header nav).
 - `src/lib/site-pages.ts` — routes, nav, per-URL metadata/H1
 - `src/lib/site-url.ts` — `metadataBase`, re-exports sitemap routes
 - `src/app/sitemap.ts`, `src/app/robots.ts` — crawl signals
+- `src/lib/metadata/root-metadata.ts` — root metadata + GSC verification hook
+- `src/lib/schema/site-graph.ts` — Organization + WebSite + RealEstateAgent `@graph`
 
-## RealScout (when integrated)
+## Google Search Console
 
-- Load `realscout-web-components.umd.js` once in root `layout.tsx` (`type="module"`).
+1. **Property:** `https://www.sandstonetulessprings.com` (URL-prefix) — same host as `NEXT_PUBLIC_BASE_URL`.
+2. **Verify:** set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel production (HTML tag method).
+3. **Sitemap:** submit `https://www.sandstonetulessprings.com/sitemap.xml` (8 marketing URLs from `site-pages.ts`).
+4. **robots.txt:** `https://www.sandstonetulessprings.com/robots.txt` — allows `/`, links sitemap; does not block `/_next/static`.
+5. **After deploy:** URL Inspection on `/`, `/faq`, `/landings-at-sandstone`; validate JSON-LD in [Rich Results Test](https://search.google.com/test/rich-results).
+6. **Optional:** `NEXT_PUBLIC_BUILD_DATE` (ISO date) for stable sitemap `lastmod` on production deploys.
+
+## RealScout (integrated)
+
+- Load `realscout-web-components.umd.js` via `RealScoutOfficeListingsDeferred` when listings enter viewport (`lazyOnload`) on convert routes only.
 - CSP must allow `em.realscout.com` and `www.realscout.com` in `script-src` and `connect-src`.
+
+## Performance (PageSpeed)
+
+- **Convert routes** (`(convert)` group): `/`, `/buyers`, `/contact` — RealScout listings (in-viewport + `lazyOnload`), Calendly badge (load on hover/click).
+- **Info routes** (`(info)` group): `/faq`, `/visit`, `/landings-at-sandstone`, etc. — no third-party scripts on initial load; footer `ScheduleCta` loads Calendly on click if configured.
+- Fonts: system UI stack only (no `next/font` download).
+- Measurement: `@vercel/speed-insights` in root layout.
 
 ## Calendly (integrated)
 
-- Load `widget.js` once in root layout via `<CalendlyScript />` (`id="calendly-widget-js"`).
-- Floating `<CalendlyBadge />` = 15-min consultation event.
+- Load `widget.js` + CSS via `loadCalendlyAssets()` in `lib/calendly.ts` (on demand, not root layout).
+- Floating `<CalendlyBadge />` on convert routes only = 15-min consultation event.
 - Page CTAs use `<ScheduleCta />` / `<CalendlyButton />` / `<CalendlyEmbed />` (contact page inline).
 - Route all URLs through `lib/calendly.ts` `buildCalendlyUrl()` for UTM → FUB attribution.
 - Env: `NEXT_PUBLIC_CALENDLY_TOUR_URL`, `NEXT_PUBLIC_CALENDLY_CONSULTATION_URL` (see `.env.example`).

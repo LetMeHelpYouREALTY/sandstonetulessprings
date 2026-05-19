@@ -1,23 +1,48 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { RealScoutScript } from "@/components/realscout/RealScoutScript";
 import {
 	getRealScoutAgentEncodedId,
 	hasRealScoutAgentId,
 	REALSCOUT_OFFICE_LISTINGS_DEFAULTS,
 } from "@/lib/realscout-config";
 
-type RealScoutOfficeListingsProps = {
-	/** Optional heading id for aria-labelledby */
+type RealScoutOfficeListingsDeferredProps = {
 	headingId?: string;
-	/** below-hero: directly under page H1/lead; footer: legacy full-width band (avoid on marketing pages). */
 	placement?: "below-hero" | "footer";
 };
 
 /**
- * Office listings feed — below the page hero (H1 + lead), above body copy.
+ * Loads RealScout script when the listings block is near the viewport (below hero).
  */
-export function RealScoutOfficeListings({
+export function RealScoutOfficeListingsDeferred({
 	headingId = "office-listings-heading",
 	placement = "below-hero",
-}: RealScoutOfficeListingsProps) {
+}: RealScoutOfficeListingsDeferredProps) {
+	const sectionRef = useRef<HTMLElement>(null);
+	const [loadScript, setLoadScript] = useState(false);
+
+	useEffect(() => {
+		const node = sectionRef.current;
+		if (!node || !hasRealScoutAgentId()) {
+			return;
+		}
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry?.isIntersecting) {
+					setLoadScript(true);
+					observer.disconnect();
+				}
+			},
+			{ rootMargin: "200px 0px", threshold: 0 },
+		);
+
+		observer.observe(node);
+		return () => observer.disconnect();
+	}, []);
+
 	if (!hasRealScoutAgentId()) {
 		return null;
 	}
@@ -32,7 +57,12 @@ export function RealScoutOfficeListings({
 			: "w-full border-t border-black/10 px-6 py-12 dark:border-white/10";
 
 	return (
-		<section aria-labelledby={headingId} className={sectionClass}>
+		<section
+			ref={sectionRef}
+			aria-labelledby={headingId}
+			className={sectionClass}
+		>
+			{loadScript ? <RealScoutScript /> : null}
 			<div className="mx-auto w-full max-w-5xl">
 				<h2
 					id={headingId}

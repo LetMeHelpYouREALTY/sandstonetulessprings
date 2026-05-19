@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import {
 	buildCalendlyUrl,
 	hasCalendlyConfigured,
+	loadCalendlyAssets,
 	type CalendlyEventType,
 	type CalendlyUtm,
 } from "@/lib/calendly";
@@ -23,15 +24,26 @@ export function CalendlyEmbed({
 	const url = buildCalendlyUrl(eventType, utm);
 
 	useEffect(() => {
-		if (!url || !containerRef.current || !window.Calendly) {
+		if (!url || !containerRef.current) {
 			return;
 		}
 
-		containerRef.current.innerHTML = "";
-		window.Calendly.initInlineWidget({
-			url,
-			parentElement: containerRef.current,
+		let cancelled = false;
+
+		void loadCalendlyAssets().then(() => {
+			if (cancelled || !containerRef.current || !window.Calendly) {
+				return;
+			}
+			containerRef.current.innerHTML = "";
+			window.Calendly.initInlineWidget({
+				url,
+				parentElement: containerRef.current,
+			});
 		});
+
+		return () => {
+			cancelled = true;
+		};
 	}, [url]);
 
 	if (!hasCalendlyConfigured() || !url) {

@@ -3,13 +3,13 @@ import Script from "next/script";
 const REALSCOUT_SCRIPT_SRC =
 	"https://em.realscout.com/widgets/realscout-web-components.umd.js";
 
-/** Load once per page — required for all RealScout web components on the site. */
+/** Load once per page when listings section enters viewport (lazyOnload). */
 export function RealScoutScript() {
 	return (
 		<Script
 			id="realscout-web-components"
 			src={REALSCOUT_SCRIPT_SRC}
-			strategy="afterInteractive"
+			strategy="lazyOnload"
 			type="module"
 		/>
 	);

@@ -1,9 +1,10 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
 	buildCalendlyUrl,
 	hasCalendlyConfigured,
+	loadCalendlyAssets,
 	type CalendlyEventType,
 	type CalendlyUtm,
 } from "@/lib/calendly";
@@ -24,6 +25,7 @@ export function CalendlyButton({
 	eventType = "tour",
 	utm,
 }: CalendlyButtonProps) {
+	const [pending, setPending] = useState(false);
 	const url = buildCalendlyUrl(eventType, utm);
 
 	if (!hasCalendlyConfigured() || !url) {
@@ -34,11 +36,20 @@ export function CalendlyButton({
 		<button
 			type="button"
 			className={className}
+			disabled={pending}
+			onPointerEnter={() => {
+				void loadCalendlyAssets();
+			}}
 			onClick={() => {
-				window.Calendly?.initPopupWidget({ url });
+				setPending(true);
+				void loadCalendlyAssets()
+					.then(() => {
+						window.Calendly?.initPopupWidget({ url });
+					})
+					.finally(() => setPending(false));
 			}}
 		>
-			{children}
+			{pending ? "Loading…" : children}
 		</button>
 	);
 }

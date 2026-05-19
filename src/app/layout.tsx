@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
 	AGENT_LICENSE,
 	BROKERAGE_NAME,
@@ -8,39 +8,14 @@ import {
 	getSiteEmail,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
-import { CalendlyBadge } from "@/components/calendly/CalendlyBadge";
-import { CalendlyScript } from "@/components/calendly/CalendlyScript";
 import { ScheduleCta } from "@/components/calendly/ScheduleCta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { RealScoutScript } from "@/components/realscout/RealScoutScript";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { hasCalendlyConfigured } from "@/lib/calendly";
-import { buildRealEstateAgentJsonLd } from "@/lib/schema/agent";
-import { getSiteUrl } from "@/lib/site-url";
+import { buildRootMetadata } from "@/lib/metadata/root-metadata";
+import { buildSiteGraphJsonLd } from "@/lib/schema/site-graph";
 import "./globals.css";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-	metadataBase: new URL(getSiteUrl()),
-	title: {
-		default: SITE_BUSINESS_NAME,
-		template: `%s | ${SITE_BUSINESS_NAME}`,
-	},
-	description:
-		"Buyer representation for Sandstone at Tule Springs and KB Home Landings at Sandstone in North Las Vegas (89084). Sales office at N. 5th St. and Sandstone Ranch Pkwy. with Dr. Jan Duffy, REALTOR®.",
-	alternates: {
-		canonical: "/",
-	},
-};
+export const metadata: Metadata = buildRootMetadata();
 
 export default function RootLayout({
 	children,
@@ -49,25 +24,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<head>
-				<link rel="preconnect" href="https://em.realscout.com" />
-				<link rel="preconnect" href="https://www.realscout.com" />
-				{hasCalendlyConfigured() ? (
-					<link
-						href="https://assets.calendly.com/assets/external/widget.css"
-						rel="stylesheet"
-					/>
-				) : null}
-			</head>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-			>
-				<JsonLd data={buildRealEstateAgentJsonLd()} />
-				<RealScoutScript />
-				<CalendlyScript />
+			<body className="min-h-screen flex flex-col antialiased">
+				<JsonLd data={buildSiteGraphJsonLd()} />
 				<SiteHeader />
 				{children}
-				<CalendlyBadge />
 				<footer className="mt-auto border-t border-black/10 px-6 py-6 text-center text-sm text-neutral-600 dark:border-white/10 dark:text-neutral-400">
 					<p className="font-medium text-neutral-900 dark:text-neutral-100">
 						{SITE_BUSINESS_NAME}
@@ -101,6 +61,7 @@ export default function RootLayout({
 						{BROKERAGE_NAME} · License {AGENT_LICENSE}
 					</p>
 				</footer>
+				<SpeedInsights />
 			</body>
 		</html>
 	);

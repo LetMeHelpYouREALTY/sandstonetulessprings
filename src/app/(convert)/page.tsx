@@ -22,6 +22,7 @@ export default function HomePage() {
 	return (
 		<MarketingPage
 			page={SITE_PAGES.home}
+			showOfficeListings
 			lead={
 				<p>
 					Independent buyer representation and resale guidance for{" "}

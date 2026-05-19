@@ -25,6 +25,7 @@ export default function ContactPage() {
 	return (
 		<MarketingPage
 			page={SITE_PAGES.contact}
+			showOfficeListings
 			lead={
 				<p>
 					Reach {AGENT_NAME} for buyer representation. Community visits and
