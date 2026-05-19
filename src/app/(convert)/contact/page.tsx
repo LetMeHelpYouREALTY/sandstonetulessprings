@@ -13,6 +13,8 @@ import {
 	AGENT_NAME,
 	BROKERAGE_NAME,
 	formatCommunityAddress,
+	getAgentPhoneDisplay,
+	getAgentPhoneTel,
 	getCommunityDirectionsUrl,
 	getSiteEmail,
 	SITE_BUSINESS_NAME,
@@ -22,6 +24,9 @@ import { SITE_PAGES } from "@/lib/site-pages";
 export const metadata: Metadata = buildPageMetadata(SITE_PAGES.contact);
 
 export default function ContactPage() {
+	const agentPhoneTel = getAgentPhoneTel();
+	const agentPhoneDisplay = getAgentPhoneDisplay();
+
 	return (
 		<MarketingPage
 			page={SITE_PAGES.contact}
@@ -54,6 +59,14 @@ export default function ContactPage() {
 						{getSiteEmail()}
 					</a>
 				</p>
+				{agentPhoneTel && agentPhoneDisplay ? (
+					<p className="text-sm text-neutral-600 dark:text-neutral-400">
+						Phone (NAP):{" "}
+						<a className="underline underline-offset-4" href={`tel:${agentPhoneTel}`}>
+							{agentPhoneDisplay}
+						</a>
+					</p>
+				) : null}
 			</section>
 			<section className="space-y-3" aria-labelledby="community-location">
 				<h2 id="community-location" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
