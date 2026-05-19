@@ -6,9 +6,15 @@ import {
 	formatCommunityAddress,
 	getCommunityDirectionsUrl,
 	getSiteEmail,
-	mailtoHref,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
+import { CalendlyBadge } from "@/components/calendly/CalendlyBadge";
+import { CalendlyScript } from "@/components/calendly/CalendlyScript";
+import { ScheduleCta } from "@/components/calendly/ScheduleCta";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { hasCalendlyConfigured } from "@/lib/calendly";
+import { buildRealEstateAgentJsonLd } from "@/lib/schema/agent";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -42,10 +48,22 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			<head>
+				{hasCalendlyConfigured() ? (
+					<link
+						href="https://assets.calendly.com/assets/external/widget.css"
+						rel="stylesheet"
+					/>
+				) : null}
+			</head>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
 			>
+				<JsonLd data={buildRealEstateAgentJsonLd()} />
+				<CalendlyScript />
+				<SiteHeader />
 				{children}
+				<CalendlyBadge />
 				<footer className="mt-auto border-t border-black/10 px-6 py-6 text-center text-sm text-neutral-600 dark:border-white/10 dark:text-neutral-400">
 					<p className="font-medium text-neutral-900 dark:text-neutral-100">
 						{SITE_BUSINESS_NAME}
@@ -53,7 +71,10 @@ export default function RootLayout({
 					<address className="mt-2 not-italic">
 						{formatCommunityAddress()}
 					</address>
-					<p className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+					<div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+						<ScheduleCta utmMedium="footer" buttonLabel="Schedule with Dr. Jan" />
+					</div>
+					<p className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
 						<a
 							className="hover:underline hover:underline-offset-4"
 							href={getCommunityDirectionsUrl()}
@@ -67,7 +88,7 @@ export default function RootLayout({
 						</span>
 						<a
 							className="hover:underline hover:underline-offset-4"
-							href={mailtoHref(`${SITE_BUSINESS_NAME} — inquiry`)}
+							href={`mailto:${getSiteEmail()}`}
 						>
 							{getSiteEmail()}
 						</a>

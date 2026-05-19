@@ -30,6 +30,19 @@ export const SALES_OFFICE_APPOINTMENT_NOTE =
 
 export const COMMUNITY_HOME_SUMMARY = `Single-family homes ranging from ${HOME_SQFT_MIN.toLocaleString()} to ${HOME_SQFT_MAX.toLocaleString()} square feet.`;
 
+/** GEO entity summary — cite only verifiable builder/master-plan facts. */
+export const MASTER_PLAN_GEO_SUMMARY =
+	"Sandstone at Tule Springs is a master-planned residential area in North Las Vegas (89084), with builder villages including KB Home's Landings at Sandstone. The KB Home sales office serves buyers near N. 5th St. and Sandstone Ranch Pkwy., with freeway access via I-215 and N. 5th St.";
+
+/** Highlights published on KB Home's Landings community page (planned amenities may change). */
+export const LANDINGS_KB_HIGHLIGHTS = [
+	"Master-planned community setting",
+	"Two-story homes with backyards (per KB Home marketing)",
+	"Planned community amenities such as pickleball and basketball courts and a dog park (per KB Home)",
+	"Convenient access to I-215",
+	"Short drive to Aliante Casino and Hotel and local golf courses (per KB Home neighborhood copy)",
+] as const;
+
 export const COMMUNITY_FAQ = [
 	{
 		question: `Where is the ${BUILDER_NAME} sales office for ${BUILDER_COMMUNITY_NAME}?`,
@@ -53,11 +66,28 @@ export const COMMUNITY_FAQ = [
 	},
 ] as const;
 
-export function buildCommunityFaqJsonLd(): Record<string, unknown> {
+/** Additional buyer-focused FAQs for /faq (AEO — agent vs builder). */
+export const BUYER_FAQ = [
+	{
+		question: "Do I need a REALTOR® to buy at Landings at Sandstone?",
+		answer:
+			"You can tour the KB Home sales office directly, but many buyers use an independent Nevada REALTOR® for representation, contract review, and resale guidance within Sandstone at Tule Springs. Dr. Jan Duffy is not affiliated with KB Home.",
+	},
+	{
+		question: "Who do I call for builder tours versus buyer representation?",
+		answer: `Call ${BUILDER_SALES_PHONE_DISPLAY} to schedule KB Home sales-office visits. Use the Calendly scheduler on this site to book time with Dr. Jan Duffy for buyer representation on new construction or resale in the master plan.`,
+	},
+] as const;
+
+export const ALL_SITE_FAQ = [...COMMUNITY_FAQ, ...BUYER_FAQ] as const;
+
+export function buildCommunityFaqJsonLd(
+	items: readonly { question: string; answer: string }[] = COMMUNITY_FAQ,
+): Record<string, unknown> {
 	return {
 		"@context": "https://schema.org",
 		"@type": "FAQPage",
-		mainEntity: COMMUNITY_FAQ.map((item) => ({
+		mainEntity: items.map((item) => ({
 			"@type": "Question",
 			name: item.question,
 			acceptedAnswer: {

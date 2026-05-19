@@ -22,7 +22,4 @@ export type SitemapRoute = {
 	priority: number;
 };
 
-/** Public marketing routes to include in /sitemap.xml. Add paths here as new pages ship. */
-export const SITEMAP_ROUTES: SitemapRoute[] = [
-	{ path: "/", changeFrequency: "weekly", priority: 1 },
-];
+export { SITEMAP_ROUTES } from "@/lib/site-pages";

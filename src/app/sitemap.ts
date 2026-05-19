@@ -1,11 +1,7 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, SITEMAP_ROUTES } from "@/lib/site-url";
+import { getSitemapEntries } from "@/lib/sitemap-entries";
 
+/** Served at /sitemap.xml — submit this URL in Google Search Console (property must match host). */
 export default function sitemap(): MetadataRoute.Sitemap {
-	return SITEMAP_ROUTES.map((route) => ({
-		url: absoluteUrl(route.path),
-		lastModified: new Date(),
-		changeFrequency: route.changeFrequency,
-		priority: route.priority,
-	}));
+	return getSitemapEntries();
 }
