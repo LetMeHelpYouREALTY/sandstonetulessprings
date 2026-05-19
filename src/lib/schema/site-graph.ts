@@ -4,6 +4,8 @@ import {
 	AGENT_NAME,
 	BROKERAGE_NAME,
 	COMMUNITY_ADDRESS,
+	getAgentPhoneTel,
+	getGbpProfileUrl,
 	getSiteEmail,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
@@ -19,6 +21,10 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 	const { streetAddress, addressLocality, addressRegion, postalCode, addressCountry } =
 		COMMUNITY_ADDRESS;
 
+	const telephone = getAgentPhoneTel();
+	const gbpProfileUrl = getGbpProfileUrl();
+	const sameAs = gbpProfileUrl ? [gbpProfileUrl] : undefined;
+
 	return {
 		"@context": "https://schema.org",
 		"@graph": [
@@ -28,6 +34,8 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 				name: SITE_BUSINESS_NAME,
 				url: siteUrl,
 				email: getSiteEmail(),
+				...(telephone ? { telephone } : {}),
+				...(sameAs ? { sameAs } : {}),
 				address: {
 					"@type": "PostalAddress",
 					streetAddress,
@@ -51,6 +59,8 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 				name: AGENT_NAME,
 				url: siteUrl,
 				email: getSiteEmail(),
+				...(telephone ? { telephone } : {}),
+				...(sameAs ? { sameAs } : {}),
 				identifier: AGENT_LICENSE,
 				description: `${SITE_BUSINESS_NAME} — buyer representation for ${MASTER_PLAN_NAME} and North Las Vegas (89084).`,
 				worksFor: { "@id": organizationId },
