@@ -12,6 +12,7 @@ import { CalendlyBadge } from "@/components/calendly/CalendlyBadge";
 import { CalendlyScript } from "@/components/calendly/CalendlyScript";
 import { ScheduleCta } from "@/components/calendly/ScheduleCta";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { RealScoutScript } from "@/components/realscout/RealScoutScript";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { hasCalendlyConfigured } from "@/lib/calendly";
 import { buildRealEstateAgentJsonLd } from "@/lib/schema/agent";
@@ -49,6 +50,8 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
+				<link rel="preconnect" href="https://em.realscout.com" />
+				<link rel="preconnect" href="https://www.realscout.com" />
 				{hasCalendlyConfigured() ? (
 					<link
 						href="https://assets.calendly.com/assets/external/widget.css"
@@ -60,6 +63,7 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
 			>
 				<JsonLd data={buildRealEstateAgentJsonLd()} />
+				<RealScoutScript />
 				<CalendlyScript />
 				<SiteHeader />
 				{children}
