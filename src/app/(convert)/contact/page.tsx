@@ -13,8 +13,11 @@ import {
 	AGENT_NAME,
 	BROKERAGE_NAME,
 	formatCommunityAddress,
+	formatOfficeAddress,
 	getCommunityDirectionsUrl,
+	getOfficeDirectionsUrl,
 	getSiteEmail,
+	OFFICE_DISPLAY_NAME,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
 import { SITE_PAGES } from "@/lib/site-pages";
@@ -40,6 +43,19 @@ export default function ContactPage() {
 				<p>
 					<strong>{SITE_BUSINESS_NAME}</strong> — book a private tour or buyer
 					consultation online (leads sync to Follow Up Boss via Calendly).
+				</p>
+				<p className="text-sm">
+					<strong>{OFFICE_DISPLAY_NAME}</strong>
+					<br />
+					<address className="mt-1 not-italic">{formatOfficeAddress()}</address>
+					<a
+						className="mt-2 inline-block font-medium underline underline-offset-4"
+						href={getOfficeDirectionsUrl()}
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						Office directions
+					</a>
 				</p>
 				<CalendlyEmbed
 					eventType="tour"

@@ -3,8 +3,8 @@ import {
 	AGENT_LICENSE,
 	AGENT_NAME,
 	BROKERAGE_NAME,
-	COMMUNITY_ADDRESS,
 	getSiteEmail,
+	OFFICE_ADDRESS,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
 import { getSiteUrl } from "@/lib/site-url";
@@ -17,7 +17,7 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 	const agentId = `${siteUrl}/#real-estate-agent`;
 
 	const { streetAddress, addressLocality, addressRegion, postalCode, addressCountry } =
-		COMMUNITY_ADDRESS;
+		OFFICE_ADDRESS;
 
 	return {
 		"@context": "https://schema.org",
@@ -53,6 +53,14 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 				email: getSiteEmail(),
 				identifier: AGENT_LICENSE,
 				description: `${SITE_BUSINESS_NAME} — buyer representation for ${MASTER_PLAN_NAME} and North Las Vegas (89084).`,
+				address: {
+					"@type": "PostalAddress",
+					streetAddress,
+					addressLocality,
+					addressRegion,
+					postalCode,
+					addressCountry,
+				},
 				worksFor: { "@id": organizationId },
 				parentOrganization: {
 					"@type": "Organization",
