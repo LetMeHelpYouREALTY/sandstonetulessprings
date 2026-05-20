@@ -1,3 +1,4 @@
+import { SITE_HOME_TITLE } from "@/lib/site-contact";
 import type { SitemapRoute } from "@/lib/site-url";
 
 /** Core marketing routes — 8 URLs for launch SEO / GEO / AEO (pillar + topical, not thin clones). */
@@ -23,11 +24,12 @@ export const SITE_PAGES = {
 	home: {
 		path: "/",
 		navLabel: "Home",
-		title: "Homes at Sandstone Tule Springs, North Las Vegas",
+		title: SITE_HOME_TITLE,
 		description:
 			"Buyer representation for Sandstone at Tule Springs and KB Home Landings at Sandstone in North Las Vegas (89084). Dr. Jan Duffy, REALTOR®.",
-		h1: "Sandstone Tule Springs | Homes by Dr. Jan Duffy",
+		h1: SITE_HOME_TITLE,
 		keywords: [
+			"Homes in Tule Springs",
 			"Sandstone Tule Springs homes",
 			"North Las Vegas new homes 89084",
 			"Dr. Jan Duffy REALTOR",

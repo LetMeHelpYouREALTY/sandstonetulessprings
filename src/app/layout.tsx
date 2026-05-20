@@ -3,9 +3,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
 	AGENT_LICENSE,
 	BROKERAGE_NAME,
-	formatCommunityAddress,
-	getCommunityDirectionsUrl,
+	formatOfficeAddress,
+	getOfficeDirectionsUrl,
 	getSiteEmail,
+	OFFICE_DISPLAY_NAME,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
 import { ScheduleCta } from "@/components/calendly/ScheduleCta";
@@ -32,8 +33,11 @@ export default function RootLayout({
 					<p className="font-medium text-neutral-900 dark:text-neutral-100">
 						{SITE_BUSINESS_NAME}
 					</p>
+					<p className="mt-1 text-xs text-neutral-500 dark:text-neutral-500">
+						{OFFICE_DISPLAY_NAME}
+					</p>
 					<address className="mt-2 not-italic">
-						{formatCommunityAddress()}
+						{formatOfficeAddress()}
 					</address>
 					<div className="mt-4 flex flex-wrap items-center justify-center gap-3">
 						<ScheduleCta utmMedium="footer" buttonLabel="Schedule with Dr. Jan" />
@@ -41,7 +45,7 @@ export default function RootLayout({
 					<p className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
 						<a
 							className="hover:underline hover:underline-offset-4"
-							href={getCommunityDirectionsUrl()}
+							href={getOfficeDirectionsUrl()}
 							rel="noopener noreferrer"
 							target="_blank"
 						>
