@@ -25,6 +25,8 @@ Across Dr. Jan Duffy / LetMeHelpYouREALTY clone sites:
 
 ## Build & deploy
 
+**Production only (agent rule):** Ship to **production**, not preview/staging. Push `main` → Vercel Production; verify on `https://www.sandstonetulessprings.com`. Use `vercel --prod` for CLI deploys, not preview deploys. See `.cursor/rules/production-deploy-only.mdc`.
+
 - Production build: `npm run build` → `next build --webpack` (avoid Turbopack on Vercel CI).
 - Prefer `vercel build` for deploy parity when linked.
 - Canonical URL: `NEXT_PUBLIC_BASE_URL` (see `.env.example`). Must match Search Console host (www vs apex).

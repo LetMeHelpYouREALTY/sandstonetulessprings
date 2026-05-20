@@ -1,0 +1,36 @@
+---
+description: Always ship to production (main / vercel --prod); never leave deliverables on preview or staging only.
+alwaysApply: true
+---
+
+# Production deploy only (sandstonetulessprings.com)
+
+This site’s **canonical** host is production: `https://www.sandstonetulessprings.com` (`NEXT_PUBLIC_BASE_URL` on the **Production** Vercel environment).
+
+## Git
+
+- **Default branch for delivery:** `main` only.
+- After changes the user expects live: `git push origin main` (or `git push -u origin HEAD` when already on `main`).
+- **Do not** push feature work only to a preview/staging branch unless the user explicitly asks for a PR or experimental deploy.
+- **Do not** tell the user to verify GBP, GSC, NAP, or SEO on a Vercel preview URL when production is the goal — use the production domain.
+
+## Vercel CLI
+
+- Intentional deploys: **`vercel --prod`** (production), not a preview deployment.
+- Local build parity: `vercel build` (not `npm run build` alone) when checking deploy readiness.
+- **Do not** run `vercel deploy` without `--prod` when the user wants the site live or updated for customers/Google.
+- **Do not** promote or treat Preview deployment URLs as the source of truth for NAP, GBP, or Search Console.
+
+## Environment variables
+
+- GBP phone, Place ID, GSC verification, and `NEXT_PUBLIC_BASE_URL` must be set on Vercel **Production**, not only Preview.
+- Preview may use `NEXT_PUBLIC_GBP_REVIEWS_DISABLED=true`; production uses verified GBP values when live.
+
+## Agent completion checklist
+
+When the user says deploy, push, or go live:
+
+1. Commit on `main` (if they asked for a commit).
+2. `git push origin main`.
+3. Confirm Vercel **Production** deployment (dashboard or `vercel --prod` if deploying via CLI).
+4. Verify on `https://www.sandstonetulessprings.com`, not `*.vercel.app` preview hosts.
