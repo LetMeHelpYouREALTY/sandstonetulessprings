@@ -33,7 +33,7 @@ export default function VisitPage() {
 			}
 		>
 			<section className="space-y-4" aria-labelledby="i215-directions">
-				<h2 id="i215-directions" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="i215-directions" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					How do you get to {PRIMARY_HOME_SEARCH_QUERY} from I-215?
 				</h2>
 				<p>
@@ -47,7 +47,7 @@ export default function VisitPage() {
 				</ol>
 			</section>
 			<section className="space-y-3" aria-labelledby="appointments">
-				<h2 id="appointments" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="appointments" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					Are walk-in tours available?
 				</h2>
 				<p>{SALES_OFFICE_APPOINTMENT_NOTE}</p>
@@ -63,7 +63,7 @@ export default function VisitPage() {
 			</section>
 			<p>
 				<a
-					className="inline-flex items-center justify-center rounded-full border border-black/10 bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-neutral-800 dark:border-white/15 dark:bg-white dark:text-neutral-900"
+					className="lux-btn-primary"
 					href={getCommunityDirectionsUrl()}
 					rel="noopener noreferrer"
 					target="_blank"

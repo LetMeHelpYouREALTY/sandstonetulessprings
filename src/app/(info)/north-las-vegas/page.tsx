@@ -23,7 +23,7 @@ export default function NorthLasVegasPage() {
 			}
 		>
 			<section className="space-y-3" aria-labelledby="zip-and-access">
-				<h2 id="zip-and-access" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="zip-and-access" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					What zip code is Sandstone in?
 				</h2>
 				<p>{getMasterPlanGeoSummary()}</p>
@@ -31,7 +31,7 @@ export default function NorthLasVegasPage() {
 			<section className="space-y-3" aria-labelledby="freeway-access">
 				<h2
 					id="freeway-access"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					How do commuters reach the Las Vegas Valley from Sandstone?
 				</h2>
@@ -46,7 +46,7 @@ export default function NorthLasVegasPage() {
 				</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="nearby-lifestyle">
-				<h2 id="nearby-lifestyle" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="nearby-lifestyle" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					What is nearby for day-to-day living?
 				</h2>
 				<p>
@@ -57,7 +57,7 @@ export default function NorthLasVegasPage() {
 				</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="tule-springs">
-				<h2 id="tule-springs" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="tule-springs" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					Why is it called Tule Springs?
 				</h2>
 				<p>

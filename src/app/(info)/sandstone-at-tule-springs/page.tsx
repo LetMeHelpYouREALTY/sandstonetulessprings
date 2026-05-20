@@ -34,7 +34,7 @@ export default function MasterPlanPage() {
 		>
 			<JsonLd data={buildCommunityPlaceJsonLd(siteUrl)} />
 			<section className="space-y-3" aria-labelledby="what-is-sandstone">
-				<h2 id="what-is-sandstone" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="what-is-sandstone" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					What is Sandstone at Tule Springs?
 				</h2>
 				<p>{getMasterPlanGeoSummary()}</p>
@@ -49,7 +49,7 @@ export default function MasterPlanPage() {
 				</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="where-located">
-				<h2 id="where-located" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="where-located" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					Where is the community located?
 				</h2>
 				<p>

@@ -54,7 +54,7 @@ export default function AboutPage() {
 			<section className="space-y-3" aria-labelledby="who-is-agent">
 				<h2
 					id="who-is-agent"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					Who is {AGENT_NAME}?
 				</h2>
@@ -68,7 +68,7 @@ export default function AboutPage() {
 			<section className="space-y-3" aria-labelledby="gbp-alignment">
 				<h2
 					id="gbp-alignment"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					How does this website match the Google Business Profile?
 				</h2>
@@ -86,7 +86,7 @@ export default function AboutPage() {
 				pages={[SITE_PAGES.contact, SITE_PAGES.buyers, SITE_PAGES.faq, SITE_PAGES.newHomes]}
 				title="Next steps"
 			/>
-			<p className="text-sm text-neutral-600 dark:text-neutral-400">
+			<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 				<Link className="underline underline-offset-4" href={SITE_PAGES.contact.path}>
 					Contact and directions
 				</Link>

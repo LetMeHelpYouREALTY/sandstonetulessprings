@@ -25,7 +25,7 @@ Across Dr. Jan Duffy / LetMeHelpYouREALTY clone sites:
 
 ## Build & deploy
 
-**Production only (agent rule):** Ship to **production**, not preview/staging. Push `main` → Vercel Production; verify on `https://www.sandstonetulessprings.com`. Use `vercel --prod` for CLI deploys, not preview deploys. See `.cursor/rules/production-deploy-only.mdc`.
+**Production only (agent rule):** Ship to **production**, not preview/staging. Push `main` → Vercel Production; verify on `https://www.sandstonetulessprings.com`. Use `vercel --prod` for CLI deploys. Global rule: `~/.cursor/rules/global-production-deploy-only.mdc`; repo pointer: `.cursor/rules/production-deploy-only.mdc`.
 
 - Production build: `npm run build` → `next build --webpack` (avoid Turbopack on Vercel CI).
 - Prefer `vercel build` for deploy parity when linked.
@@ -92,7 +92,7 @@ Registry: `src/lib/site-pages.ts` (also drives `SITEMAP_ROUTES` and header nav).
 
 - **Convert routes** (`(convert)` group): `/`, `/buyers`, `/contact` — RealScout listings (in-viewport + `lazyOnload`), Calendly badge (load on hover/click).
 - **Info routes** (`(info)` group): `/faq`, `/visit`, `/landings-at-sandstone`, etc. — no third-party scripts on initial load; footer `ScheduleCta` loads Calendly on click if configured.
-- Fonts: system UI stack only (no `next/font` download).
+- Fonts: Playfair Display (headings) + Inter (body) via `next/font` in root layout; luxury tokens in `src/styles/luxury-tokens.css`.
 - Measurement: `@vercel/speed-insights` in root layout.
 
 ## Calendly (integrated)

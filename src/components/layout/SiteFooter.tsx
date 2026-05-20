@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { ScheduleCta } from "@/components/calendly/ScheduleCta";
 import { GbpOfficeCtas } from "@/components/gbp/GbpOfficeCtas";
 import {
 	formatGbpOfficeHoursShort,
@@ -7,6 +9,7 @@ import {
 import {
 	AGENT_GBP_OFFICE_LABEL,
 	AGENT_LICENSE,
+	AGENT_NAME,
 	BROKERAGE_NAME,
 	formatCommunityAddress,
 	formatOfficeAddress,
@@ -16,70 +19,103 @@ import {
 	OFFICE_DISPLAY_NAME,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
-import { ScheduleCta } from "@/components/calendly/ScheduleCta";
+import { PRIMARY_NAV } from "@/lib/site-pages";
 
 /** Sitewide NAP — agent GBP office (89032) + homes sales area (89084) on every page. */
 export function SiteFooter() {
 	return (
-		<footer className="mt-auto border-t border-black/10 px-6 py-8 text-center text-sm text-neutral-600 dark:border-white/10 dark:text-neutral-400">
-			<p className="font-medium text-neutral-900 dark:text-neutral-100">
-				{SITE_BUSINESS_NAME}
-			</p>
-			<div className="mx-auto mt-4 grid max-w-lg gap-6 text-left sm:grid-cols-2">
-				<div>
-					<p className="text-xs font-semibold uppercase tracking-wide text-neutral-700 dark:text-neutral-300">
-						{AGENT_GBP_OFFICE_LABEL}
-					</p>
-					<p className="mt-1 text-xs text-neutral-500">{OFFICE_DISPLAY_NAME}</p>
-					<address className="mt-2 not-italic">{formatOfficeAddress()}</address>
-					<p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-						{formatGbpOfficeHoursShort()}
-					</p>
-					<p className="mt-2">
-						<a className="hover:underline hover:underline-offset-4" href={getGbpPhoneTelHref()}>
-							{getGbpPhoneDisplay()}
-						</a>
-					</p>
-					<div className="mt-2">
-						<GbpOfficeCtas utmContext="footer-gbp" variant="compact" />
+		<footer
+			className="mt-auto border-t border-[var(--border-subtle)] bg-lux-surface py-12 text-[length:var(--text-base)] text-lux-muted"
+			role="contentinfo"
+		>
+			<div className="lux-container">
+				<div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
+					<div>
+						<p className="m-0 font-display text-[length:var(--text-lg)] text-lux-text">
+							{SITE_BUSINESS_NAME}
+						</p>
+						<p className="mt-2 text-[length:var(--text-sm)] font-semibold text-lux-muted">
+							{AGENT_GBP_OFFICE_LABEL}
+						</p>
+						<p className="mt-1 text-[length:var(--text-sm)] text-lux-muted-soft">
+							{OFFICE_DISPLAY_NAME}
+						</p>
+						<address className="mt-3 not-italic leading-[var(--leading-body)]">
+							{formatOfficeAddress()}
+						</address>
+						<p className="mt-2 text-[length:var(--text-sm)] text-lux-muted-soft">
+							{formatGbpOfficeHoursShort()}
+						</p>
+						<p className="mt-3">
+							<a className="lux-link font-semibold" href={getGbpPhoneTelHref()}>
+								{getGbpPhoneDisplay()}
+							</a>
+						</p>
+						<div className="mt-3">
+							<GbpOfficeCtas utmContext="footer-gbp" variant="compact" />
+						</div>
+					</div>
+					<div>
+						<p className="m-0 text-[length:var(--text-sm)] font-semibold text-lux-text">
+							{HOME_SALES_AREA_LABEL}
+						</p>
+						<address className="mt-3 not-italic">{formatCommunityAddress()}</address>
+						<p className="mt-2">
+							<a
+								className="lux-link font-semibold"
+								href={getCommunityDirectionsUrl()}
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								Directions to homes sales area
+							</a>
+						</p>
+					</div>
+					<div>
+						<p className="m-0 text-[length:var(--text-sm)] font-semibold text-lux-text">
+							Explore
+						</p>
+						<ul className="mt-3 list-none space-y-2 p-0">
+							{PRIMARY_NAV.filter((p) => p.path !== "/").map((page) => (
+								<li key={page.path}>
+									<Link
+										className="text-lux-muted no-underline hover:text-lux-text"
+										href={page.path}
+									>
+										{page.navLabel}
+									</Link>
+								</li>
+							))}
+						</ul>
 					</div>
 				</div>
-				<div>
-					<p className="text-xs font-semibold uppercase tracking-wide text-neutral-700 dark:text-neutral-300">
-						{HOME_SALES_AREA_LABEL}
+				<div className="mt-8 flex flex-wrap gap-3">
+					<ScheduleCta
+						utmMedium="footer"
+						buttonLabel="Schedule with Dr. Jan"
+						variant="luxury-primary"
+					/>
+				</div>
+				<p className="mt-6">
+					<a className="lux-link font-semibold" href={`mailto:${getSiteEmail()}`}>
+						{getSiteEmail()}
+					</a>
+				</p>
+				<div className="mt-8 max-w-[var(--measure)] border-t border-[var(--border-subtle)] pt-8 text-[length:var(--text-sm)] text-lux-muted-soft">
+					<p className="m-0 mb-2">
+						{AGENT_NAME}, REALTOR® · Nevada license {AGENT_LICENSE} · Supervised by{" "}
+						{BROKERAGE_NAME} (NV NAC 645.610).
 					</p>
-					<address className="mt-2 not-italic">{formatCommunityAddress()}</address>
-					<p className="mt-2">
-						<a
-							className="hover:underline hover:underline-offset-4"
-							href={getCommunityDirectionsUrl()}
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							Directions
-						</a>
+					<p className="m-0 mb-2">
+						Dr. Jan Duffy is a buyer&apos;s agent for Sandstone at Tule Springs — not
+						affiliated with KB Home. Equal Housing Opportunity. This site is
+						informational and does not constitute legal or tax advice.
+					</p>
+					<p className="m-0">
+						Homes sales area (89084) is distinct from the agent GBP office (89032).
 					</p>
 				</div>
 			</div>
-			<div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-				<ScheduleCta utmMedium="footer" buttonLabel="Schedule with Dr. Jan" />
-			</div>
-			<p className="mt-4">
-				<a
-					className="hover:underline hover:underline-offset-4"
-					href={`mailto:${getSiteEmail()}`}
-				>
-					{getSiteEmail()}
-				</a>
-			</p>
-			<p className="mt-2 text-xs">
-				{BROKERAGE_NAME} · Nevada license {AGENT_LICENSE}
-			</p>
-			<p className="mx-auto mt-3 max-w-xl text-xs text-neutral-500 dark:text-neutral-400">
-				Dr. Jan Duffy is a buyer&apos;s agent for Sandstone at Tule Springs — not
-				affiliated with KB Home. Supervising brokerage named above per Nevada
-				real estate advertising requirements.
-			</p>
 		</footer>
 	);
 }

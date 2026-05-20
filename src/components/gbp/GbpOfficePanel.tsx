@@ -27,7 +27,7 @@ export function GbpOfficePanel({
 		<section className="space-y-4" aria-labelledby="gbp-office-panel-heading">
 			<h2
 				id="gbp-office-panel-heading"
-				className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+				className="font-display text-[length:var(--text-xl)] text-lux-text"
 			>
 				{AGENT_GBP_OFFICE_LABEL}
 			</h2>
@@ -37,11 +37,11 @@ export function GbpOfficePanel({
 				That is where you reach Dr. Jan Duffy for buyer representation on Sandstone at Tule
 				Springs — separate from the KB Home model-home intersection in 89084.
 			</p>
-			<div className="space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+			<div className="space-y-2 text-[length:var(--text-base)] text-lux-muted">
 				<p>
 					<strong>Office hours:</strong> {formatGbpOfficeHoursPlain()}
 				</p>
-				<p className="text-neutral-600 dark:text-neutral-400">
+				<p className="text-lux-muted-soft">
 					{GBP_SUNDAY_NOTE} — call{" "}
 					<a className="underline underline-offset-4" href={getGbpPhoneTelHref()}>
 						{getGbpPhoneDisplay()}

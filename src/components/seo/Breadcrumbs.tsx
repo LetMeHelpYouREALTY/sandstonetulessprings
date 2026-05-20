@@ -11,23 +11,23 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
 	}
 
 	return (
-		<nav aria-label="Breadcrumb" className="text-sm text-neutral-600 dark:text-neutral-400">
-			<ol className="flex flex-wrap items-center gap-1">
+		<nav aria-label="Breadcrumb" className="text-[length:var(--text-sm)] text-lux-muted-soft">
+			<ol className="m-0 flex list-none flex-wrap items-center gap-1 p-0">
 				{items.map((item, index) => {
 					const isLast = index === items.length - 1;
 					return (
 						<li key={item.path} className="flex items-center gap-1">
 							{index > 0 ? (
-								<span aria-hidden className="text-neutral-400">
+								<span aria-hidden className="text-lux-muted-soft">
 									/
 								</span>
 							) : null}
 							{isLast ? (
-								<span aria-current="page" className="text-neutral-900 dark:text-neutral-100">
+								<span aria-current="page" className="text-lux-text">
 									{item.name}
 								</span>
 							) : (
-								<Link className="hover:underline hover:underline-offset-4" href={item.path}>
+								<Link className="lux-link no-underline hover:underline" href={item.path}>
 									{item.name}
 								</Link>
 							)}

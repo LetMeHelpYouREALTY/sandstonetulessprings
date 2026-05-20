@@ -9,15 +9,15 @@ type FaqListProps = {
 
 export function FaqList({ items }: FaqListProps) {
 	return (
-		<dl className="space-y-8">
+		<ul className="m-0 max-w-[var(--measure)] list-none space-y-0 border-t border-[var(--border-subtle)] p-0">
 			{items.map((item) => (
-				<div key={item.question}>
-					<dt className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
-						{item.question}
-					</dt>
-					<dd className="mt-2 leading-relaxed">{item.answer}</dd>
-				</div>
+				<li key={item.question} className="border-b border-[var(--border-subtle)]">
+					<details className="lux-faq">
+						<summary>{item.question}</summary>
+						<p className="lux-faq-answer">{item.answer}</p>
+					</details>
+				</li>
 			))}
-		</dl>
+		</ul>
 	);
 }

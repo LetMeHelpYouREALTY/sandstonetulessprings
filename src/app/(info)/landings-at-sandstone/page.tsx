@@ -39,7 +39,7 @@ export default function LandingsAtSandstonePage() {
 			<section className="space-y-3" aria-labelledby="sandstone-homes-for-sale">
 				<h2
 					id="sandstone-homes-for-sale"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					Where are {PRIMARY_HOME_SEARCH_QUERY} at Landings?
 				</h2>
@@ -55,11 +55,11 @@ export default function LandingsAtSandstonePage() {
 			<section className="space-y-3" aria-labelledby="community-highlights">
 				<h2
 					id="community-highlights"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					What does KB Home highlight at Landings?
 				</h2>
-				<p className="text-sm text-neutral-600 dark:text-neutral-400">
+				<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 					Summarized from the official {BUILDER_NAME} community page — verify
 					current amenities with the builder before you buy.
 				</p>
@@ -70,7 +70,7 @@ export default function LandingsAtSandstonePage() {
 				</ul>
 			</section>
 			<section className="space-y-3" aria-labelledby="sales-office">
-				<h2 id="sales-office" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="sales-office" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					Where is the KB Home sales office?
 				</h2>
 				<p>
@@ -79,7 +79,7 @@ export default function LandingsAtSandstonePage() {
 				</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="schedule-tour">
-				<h2 id="schedule-tour" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="schedule-tour" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					How do you schedule a builder tour?
 				</h2>
 				<p>{SALES_OFFICE_APPOINTMENT_NOTE}</p>
@@ -93,7 +93,7 @@ export default function LandingsAtSandstonePage() {
 				</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="floor-plans">
-				<h2 id="floor-plans" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="floor-plans" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					Where are floor plans and availability listed?
 				</h2>
 				<p>

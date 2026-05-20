@@ -52,9 +52,9 @@ export const SITE_PAGES = {
 	home: {
 		path: "/",
 		navLabel: "Home",
-		title: "Sandstone Tule Springs Homes | North Las Vegas 89084",
-		description: `${SITE_BUSINESS_NAME} — ${PRIMARY_HOME_SEARCH_QUERY} at N 5th St, Sandstone Ranch Pkw, Jasmine Hills St, and Mimosa Ridge Ave (89084). Independent buyer representation on KB Home Landings at Sandstone at Tule Springs and resale in the master plan.`,
-		h1: SITE_BUSINESS_NAME,
+		title: "Sandstone Tule Springs Homes | Dr. Jan Duffy | North Las Vegas 89084",
+		description: `${SITE_BUSINESS_NAME} — ${PRIMARY_HOME_SEARCH_QUERY} in North Las Vegas (89084) and the Las Vegas valley. Independent buyer representation for KB Home Landings at Sandstone at Tule Springs, resale, and consultations with Dr. Jan Duffy, REALTOR®. Call (702) 466-1509.`,
+		h1: `${SITE_GBP_BRAND_NAME} — luxury home guidance in North Las Vegas`,
 		keywords: [
 			SITE_BUSINESS_NAME,
 			PRIMARY_HOME_SEARCH_QUERY,

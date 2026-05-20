@@ -27,18 +27,18 @@ export function MarketingPage({
 	const crumbs = breadcrumbTrail(page);
 
 	return (
-		<article className="flex w-full flex-1 flex-col">
-			<div className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-6 py-12 sm:px-10 sm:py-16">
+		<article id="main" className="flex w-full flex-1 flex-col">
+			<div className="lux-container flex flex-col gap-8 py-12 sm:py-16">
 				<JsonLd
 					data={[buildWebPageJsonLd(page), buildBreadcrumbJsonLd(crumbs)]}
 				/>
 				<Breadcrumbs items={crumbs} />
-				<header className="space-y-4 border-b border-black/10 pb-8 dark:border-white/10">
-					<h1 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+				<header className="max-w-[var(--measure)] space-y-4 border-b border-[var(--border-subtle)] pb-8">
+					<h1 className="font-display text-[length:var(--text-3xl)] text-lux-text text-balance">
 						{page.h1}
 					</h1>
 					{lead ? (
-						<div className="text-lg text-neutral-700 dark:text-neutral-300">{lead}</div>
+						<div className="text-[length:var(--text-lg)] text-lux-muted">{lead}</div>
 					) : null}
 				</header>
 			</div>
@@ -47,7 +47,7 @@ export function MarketingPage({
 				<RealScoutOfficeListingsDeferred placement="below-hero" />
 			) : null}
 
-			<div className="mx-auto w-full max-w-3xl flex-1 space-y-8 px-6 pb-12 text-neutral-700 sm:px-10 sm:pb-16 dark:text-neutral-300">
+			<div className="lux-container flex-1 space-y-8 pb-12 text-lux-muted sm:pb-16 [&_a]:text-lux-gold-soft [&_a:hover]:text-lux-gold-hover [&_h2]:font-display [&_h2]:text-[length:var(--text-xl)] [&_h2]:text-lux-text [&_h3]:font-display [&_h3]:text-lux-text [&_li]:leading-[var(--leading-body)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_strong]:text-lux-text">
 				{children}
 				{showNapSummary ? <SiteNapSummary /> : null}
 			</div>

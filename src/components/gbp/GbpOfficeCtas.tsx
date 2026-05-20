@@ -5,11 +5,9 @@ import {
 import { getOfficeDirectionsUrl } from "@/lib/site-contact";
 import { buildViewReviewsUrl, buildWriteReviewUrl } from "@/lib/reviews";
 
-const pillPrimaryClass =
-	"inline-flex items-center justify-center rounded-full border border-black/10 bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-neutral-800 dark:border-white/15 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100";
+const pillPrimaryClass = "lux-btn-primary";
 
-const pillSecondaryClass =
-	"inline-flex items-center justify-center rounded-full border border-black/10 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/15 dark:hover:bg-white/[.06]";
+const pillSecondaryClass = "lux-btn-ghost";
 
 type GbpOfficeCtasProps = {
 	/** UTM fragment for analytics when linked from different sections. */
@@ -34,7 +32,7 @@ export function GbpOfficeCtas({
 	const linkClass =
 		variant === "pills"
 			? pillSecondaryClass
-			: "font-medium underline underline-offset-4 hover:text-neutral-900 dark:hover:text-neutral-100";
+			: "lux-link font-semibold";
 
 	const callClass = variant === "pills" ? pillPrimaryClass : linkClass;
 

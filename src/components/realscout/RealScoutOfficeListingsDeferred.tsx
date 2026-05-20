@@ -54,8 +54,8 @@ export function RealScoutOfficeListingsDeferred({
 
 	const sectionClass =
 		placement === "below-hero"
-			? "w-full border-y border-black/10 bg-neutral-50/80 px-6 py-10 dark:border-white/10 dark:bg-neutral-900/40"
-			: "w-full border-t border-black/10 px-6 py-12 dark:border-white/10";
+			? "w-full border-y border-[var(--border-subtle)] bg-lux-surface px-[var(--gutter)] py-10"
+			: "w-full border-t border-[var(--border-subtle)] px-[var(--gutter)] py-12";
 
 	return (
 		<section
@@ -64,10 +64,10 @@ export function RealScoutOfficeListingsDeferred({
 			className={sectionClass}
 		>
 			{loadScript ? <RealScoutScript /> : null}
-			<div className="mx-auto w-full max-w-5xl">
+			<div className="lux-container">
 				<h2
 					id={headingId}
-					className="mb-6 text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100"
+					className="mb-6 font-display text-[length:var(--text-2xl)] text-lux-text"
 				>
 					Homes for sale — {SITE_BUSINESS_NAME}
 				</h2>
@@ -79,7 +79,7 @@ export function RealScoutOfficeListingsDeferred({
 					property-types={propertyTypes}
 					sort-order={sortOrder}
 				/>
-				<p className="mt-4 text-xs text-neutral-600 dark:text-neutral-400">
+				<p className="mt-4 text-[length:var(--text-sm)] text-lux-muted-soft">
 					Listing data provided by RealScout and participating MLS(s). All
 					information deemed reliable but not guaranteed. Buyer to verify all
 					facts with the listing broker and appropriate professionals.

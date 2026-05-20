@@ -31,7 +31,7 @@ export default function BuyersPage() {
 			}
 		>
 			<section className="space-y-3" aria-labelledby="why-agent">
-				<h2 id="why-agent" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="why-agent" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					Why work with a buyer&apos;s agent at a new-home community?
 				</h2>
 				<p>
@@ -41,7 +41,7 @@ export default function BuyersPage() {
 				</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="how-to-start">
-				<h2 id="how-to-start" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+				<h2 id="how-to-start" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					How do you start with Dr. Jan Duffy?
 				</h2>
 				<p>
@@ -53,23 +53,24 @@ export default function BuyersPage() {
 					<ScheduleCta
 						utmMedium="buyers"
 						buttonLabel="Schedule a buyer consultation"
+						variant="luxury-primary"
 					/>
 					<CalendlyButton
 						eventType="consultation"
 						utm={{ utmMedium: "buyers", utmCampaign: "consultation" }}
-						className="inline-flex items-center justify-center rounded-full border border-black/10 px-5 py-2.5 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/15 dark:hover:bg-white/[.06]"
+						variant="luxury-ghost"
 					>
 						15-minute phone call
 					</CalendlyButton>
 				</div>
-				<p className="text-sm text-neutral-600 dark:text-neutral-400">
+				<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 					Email:{" "}
 					<a className="underline underline-offset-4" href={`mailto:${getSiteEmail()}`}>
 						{getSiteEmail()}
 					</a>
 				</p>
 			</section>
-			<p className="text-sm text-neutral-600 dark:text-neutral-400">
+			<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 				{BROKERAGE_NAME}. Supervising brokerage disclosure per Nevada requirements.
 			</p>
 			<PageLinks

@@ -39,11 +39,11 @@ export default function ContactPage() {
 			<section className="space-y-3" aria-labelledby="homes-sales-area">
 				<h2
 					id="homes-sales-area"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					{HOME_SALES_AREA_LABEL}
 				</h2>
-				<p className="text-sm text-neutral-600 dark:text-neutral-400">
+				<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 					KB Home sales office intersection in North Las Vegas (89084).
 				</p>
 				<address className="not-italic">{formatCommunityAddress()}</address>
@@ -62,7 +62,7 @@ export default function ContactPage() {
 			<section className="space-y-3" aria-labelledby="schedule-buyer-consult">
 				<h2
 					id="schedule-buyer-consult"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					Schedule a buyer consultation
 				</h2>
@@ -77,7 +77,7 @@ export default function ContactPage() {
 				<p className="text-sm">
 					{BROKERAGE_NAME} · License {AGENT_LICENSE}
 				</p>
-				<p className="text-sm text-neutral-600 dark:text-neutral-400">
+				<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 					Email:{" "}
 					<a className="underline underline-offset-4" href={`mailto:${getSiteEmail()}`}>
 						{getSiteEmail()}
@@ -87,7 +87,7 @@ export default function ContactPage() {
 			<section className="space-y-3" aria-labelledby="builder-contact">
 				<h2
 					id="builder-contact"
-					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+					className="font-display text-[length:var(--text-xl)] text-lux-text"
 				>
 					{BUILDER_NAME} sales (builder tours only)
 				</h2>

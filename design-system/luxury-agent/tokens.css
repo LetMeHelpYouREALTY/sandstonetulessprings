@@ -1,0 +1,83 @@
+/**
+ * Luxury real estate agent design tokens
+ * Senior-readable · WCAG AA+ · charcoal + ivory + muted gold
+ * March 2026 — shared across static prototypes and future Next.js port
+ */
+
+:root {
+	/* Color — charcoal base, warm ivory text, gold accents only */
+	--bg: #121212;
+	--surface: #1b1b1b;
+	--surface-elevated: #232323;
+	--text: #f5f1e8;
+	--muted: #d8d1c4;
+	--muted-soft: #a39e92;
+	--gold: #c6a461;
+	--gold-soft: #e2c98f;
+	--gold-hover: #d4b06e;
+	--taupe: #b8aea0;
+	--border: rgba(198, 164, 97, 0.28);
+	--border-subtle: rgba(245, 241, 232, 0.12);
+	--focus-ring: #e2c98f;
+	--focus-offset: #121212;
+	--error: #e8a4a4;
+	--success: #b8d4b0;
+
+	/* Typography — Playfair headings, Inter body */
+	--font-display: "Playfair Display", "Instrument Serif", Georgia, "Times New Roman", serif;
+	--font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+		sans-serif;
+
+	--text-xs: clamp(0.875rem, 0.82rem + 0.2vw, 0.9375rem);
+	--text-sm: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+	--text-base: clamp(1.125rem, 1.05rem + 0.35vw, 1.1875rem); /* 18px floor */
+	--text-lg: clamp(1.25rem, 1.15rem + 0.45vw, 1.375rem);
+	--text-xl: clamp(1.5rem, 1.35rem + 0.65vw, 1.75rem);
+	--text-2xl: clamp(1.875rem, 1.6rem + 1.1vw, 2.375rem);
+	--text-3xl: clamp(2.25rem, 1.85rem + 1.6vw, 3.125rem);
+	--text-hero: clamp(2.5rem, 2rem + 2.2vw, 4rem);
+
+	--leading-body: 1.75;
+	--leading-tight: 1.25;
+	--leading-display: 1.15;
+	--weight-body: 400;
+	--weight-medium: 500;
+	--weight-semibold: 600;
+	--weight-display: 500;
+
+	--measure: 68ch;
+	--measure-narrow: 55ch;
+
+	/* Spacing rhythm */
+	--space-2xs: 0.25rem;
+	--space-xs: 0.5rem;
+	--space-sm: 0.75rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: 2rem;
+	--space-2xl: 3rem;
+	--space-3xl: 4.5rem;
+	--space-4xl: 6rem;
+	--section-y: clamp(3rem, 2rem + 4vw, 5.5rem);
+	--gutter: clamp(1.25rem, 4vw, 2.5rem);
+	--content-max: 72rem;
+
+	/* Radius & elevation — borders over heavy shadows */
+	--radius-sm: 4px;
+	--radius-md: 8px;
+	--radius-lg: 12px;
+	--shadow-subtle: 0 1px 0 rgba(245, 241, 232, 0.04);
+	--shadow-card: 0 8px 24px rgba(0, 0, 0, 0.22);
+
+	/* Interactive */
+	--tap-min: 44px;
+	--input-height: 52px;
+	--transition-fast: 160ms ease;
+	--header-height: 4.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--transition-fast: 0ms;
+	}
+}
