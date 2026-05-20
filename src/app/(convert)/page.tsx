@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ScheduleCta } from "@/components/calendly/ScheduleCta";
-import { HomeGuideSection } from "@/components/sections/HomeGuideSection";
+import { PageLinks } from "@/components/content/PageLinks";
 import { MarketingPage } from "@/components/content/MarketingPage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -9,6 +9,7 @@ import {
 	buildCommunityPlaceJsonLd,
 	MASTER_PLAN_NAME,
 } from "@/lib/community";
+import { formatCommunityAddress } from "@/lib/site-contact";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { SITE_PAGES } from "@/lib/site-pages";
 import { getSiteUrl } from "@/lib/site-url";
@@ -36,8 +37,25 @@ export default function HomePage() {
 				Home sales office, and work with Dr. Jan Duffy as your Nevada REALTOR® —
 				separate from the builder.
 			</p>
-			<HomeGuideSection
-				explorePages={[
+			<section className="space-y-3" aria-labelledby="who-represents-buyers">
+				<h2
+					id="who-represents-buyers"
+					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+				>
+					Who represents buyers at Sandstone Tule Springs?
+				</h2>
+				<p>
+					Dr. Jan Duffy offers independent buyer representation for new
+					construction and resale within {MASTER_PLAN_NAME}. KB Home staff at
+					Landings represent the builder only — you can use both: tour with the
+					builder, then strategize offers and timelines with your REALTOR®.
+				</p>
+			</section>
+			<p className="text-neutral-600 dark:text-neutral-400">
+				Community area: {formatCommunityAddress()}
+			</p>
+			<PageLinks
+				pages={[
 					SITE_PAGES.masterPlan,
 					SITE_PAGES.newHomes,
 					SITE_PAGES.visit,
@@ -46,6 +64,7 @@ export default function HomePage() {
 					SITE_PAGES.area,
 					SITE_PAGES.contact,
 				]}
+				title="Start here"
 			/>
 			<div className="flex flex-wrap gap-3">
 				<ScheduleCta utmMedium="home-hero" buttonLabel="Schedule with Dr. Jan Duffy" />
