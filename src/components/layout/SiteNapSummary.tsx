@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { GbpOfficeCtas } from "@/components/gbp/GbpOfficeCtas";
+import {
+	formatGbpOfficeHoursPlain,
+	getGbpPhoneDisplay,
+	getGbpPhoneTelHref,
+} from "@/lib/google-business-profile";
 import {
 	AGENT_GBP_OFFICE_LABEL,
 	formatCommunityAddress,
@@ -30,8 +36,12 @@ export function SiteNapSummary() {
 					<dt className="font-medium text-neutral-900 dark:text-neutral-100">
 						{AGENT_GBP_OFFICE_LABEL}
 					</dt>
-					<dd className="mt-1">
+					<dd className="mt-1 space-y-2">
 						<address className="not-italic">{formatOfficeAddress()}</address>
+						<p className="text-neutral-600 dark:text-neutral-400">
+							{formatGbpOfficeHoursPlain()}
+						</p>
+						<GbpOfficeCtas utmContext="nap-summary" variant="compact" />
 					</dd>
 				</div>
 				<div>
@@ -40,6 +50,14 @@ export function SiteNapSummary() {
 					</dt>
 					<dd className="mt-1">
 						<address className="not-italic">{formatCommunityAddress()}</address>
+					</dd>
+				</div>
+				<div>
+					<dt className="font-medium text-neutral-900 dark:text-neutral-100">Phone</dt>
+					<dd className="mt-1">
+						<a className="underline underline-offset-4" href={getGbpPhoneTelHref()}>
+							{getGbpPhoneDisplay()}
+						</a>
 					</dd>
 				</div>
 				<div>

@@ -36,7 +36,7 @@ Across Dr. Jan Duffy / LetMeHelpYouREALTY clone sites:
 - **Builder vs agent:** KB Home sales phone and kbhome.com links are for builder tours/materials only. Agent email/phone (when added) must match GBP.
 - No fabricated review counts, sales volume, or rankings.
 
-## Site map (8 launch URLs — SEO / GEO / AEO)
+## Site map (9 URLs — SEO / GEO / AEO / GBP)
 
 | Path | Purpose |
 |------|---------|
@@ -47,7 +47,10 @@ Across Dr. Jan Duffy / LetMeHelpYouREALTY clone sites:
 | `/buyers` | Buyer representation / conversion |
 | `/faq` | Full FAQ + `FAQPage` JSON-LD |
 | `/north-las-vegas` | Area / 89084 local context |
-| `/contact` | NAP, email, builder vs agent phones |
+| `/about` | Agent license, brokerage, GBP NAP alignment |
+| `/contact` | NAP, map, hours, phone, Calendly |
+
+**GBP obtainment:** operator checklist in `docs/GBP-ONBOARDING.md`; dashboard copy in `src/lib/gbp-onboarding.ts`.
 
 Registry: `src/lib/site-pages.ts` (also drives `SITEMAP_ROUTES` and header nav).
 
@@ -60,6 +63,14 @@ Registry: `src/lib/site-pages.ts` (also drives `SITEMAP_ROUTES` and header nav).
 - `src/app/sitemap.ts`, `src/app/robots.ts` — crawl signals
 - `src/lib/metadata/root-metadata.ts` — root metadata + GSC verification hook
 - `src/lib/schema/site-graph.ts` — Organization + WebSite + RealEstateAgent `@graph`
+
+## Google Business Profile (pre-launch)
+
+- **Storefront** at 851 W Lone Mountain Rd (89032) — not service-area-only; add 89084 as service area for Sandstone showings.
+- **Website URL** in GBP must be `https://www.sandstonetulessprings.com` (same as `NEXT_PUBLIC_BASE_URL`).
+- **Phone** `(702) 466-1509` — in `site-contact.ts` and footer/header.
+- **Reviews:** no discounts or review-gating copy on-site (Google 2026 policy). Use `NEXT_PUBLIC_GBP_REVIEWS_DISABLED=true` until verified.
+- **After verification:** set `NEXT_PUBLIC_GBP_PLACE_ID`; optional aggregate rating env after 5+ real reviews.
 
 ## Google Search Console
 

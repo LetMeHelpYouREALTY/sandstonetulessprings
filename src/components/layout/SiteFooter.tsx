@@ -1,3 +1,9 @@
+import { GbpOfficeCtas } from "@/components/gbp/GbpOfficeCtas";
+import {
+	formatGbpOfficeHoursShort,
+	getGbpPhoneDisplay,
+	getGbpPhoneTelHref,
+} from "@/lib/google-business-profile";
 import {
 	AGENT_GBP_OFFICE_LABEL,
 	AGENT_LICENSE,
@@ -5,7 +11,6 @@ import {
 	formatCommunityAddress,
 	formatOfficeAddress,
 	getCommunityDirectionsUrl,
-	getOfficeDirectionsUrl,
 	getSiteEmail,
 	HOME_SALES_AREA_LABEL,
 	OFFICE_DISPLAY_NAME,
@@ -27,16 +32,17 @@ export function SiteFooter() {
 					</p>
 					<p className="mt-1 text-xs text-neutral-500">{OFFICE_DISPLAY_NAME}</p>
 					<address className="mt-2 not-italic">{formatOfficeAddress()}</address>
+					<p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+						{formatGbpOfficeHoursShort()}
+					</p>
 					<p className="mt-2">
-						<a
-							className="hover:underline hover:underline-offset-4"
-							href={getOfficeDirectionsUrl()}
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							Directions
+						<a className="hover:underline hover:underline-offset-4" href={getGbpPhoneTelHref()}>
+							{getGbpPhoneDisplay()}
 						</a>
 					</p>
+					<div className="mt-2">
+						<GbpOfficeCtas utmContext="footer-gbp" variant="compact" />
+					</div>
 				</div>
 				<div>
 					<p className="text-xs font-semibold uppercase tracking-wide text-neutral-700 dark:text-neutral-300">
@@ -67,7 +73,12 @@ export function SiteFooter() {
 				</a>
 			</p>
 			<p className="mt-2 text-xs">
-				{BROKERAGE_NAME} · License {AGENT_LICENSE}
+				{BROKERAGE_NAME} · Nevada license {AGENT_LICENSE}
+			</p>
+			<p className="mx-auto mt-3 max-w-xl text-xs text-neutral-500 dark:text-neutral-400">
+				Dr. Jan Duffy is a buyer&apos;s agent for Sandstone at Tule Springs — not
+				affiliated with KB Home. Supervising brokerage named above per Nevada
+				real estate advertising requirements.
 			</p>
 		</footer>
 	);

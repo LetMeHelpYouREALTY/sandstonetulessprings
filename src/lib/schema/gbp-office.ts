@@ -1,4 +1,8 @@
 import {
+	getGbpAggregateRating,
+	getGbpPhoneE164,
+} from "@/lib/google-business-profile";
+import {
 	AGENT_LICENSE,
 	AGENT_NAME,
 	GBP_GEO,
@@ -6,6 +10,7 @@ import {
 	OFFICE_ADDRESS,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
+import { buildGbpOpeningHoursSpecification } from "@/lib/schema/opening-hours";
 
 /** Postal address for this site's GBP office (89032). */
 export function buildGbpPostalAddress(): Record<string, string> {
@@ -48,12 +53,45 @@ export function buildGbpOfficeLocationFields(): Record<string, unknown> {
 	};
 }
 
+/** Hours, phone, and optional aggregate rating — shared by Organization and RealEstateAgent. */
+export function buildGbpServiceFields(): Record<string, unknown> {
+	const aggregateRating = buildOptionalAggregateRating();
+	const telephone = getGbpPhoneE164();
+
+	return {
+		openingHoursSpecification: buildGbpOpeningHoursSpecification(),
+		telephone,
+		contactPoint: {
+			"@type": "ContactPoint",
+			telephone,
+			contactType: "customer service",
+			areaServed: "US",
+			availableLanguage: ["English"],
+		},
+		...(aggregateRating ? { aggregateRating } : {}),
+	};
+}
+
+function buildOptionalAggregateRating(): Record<string, unknown> | undefined {
+	const rating = getGbpAggregateRating();
+	if (!rating) return undefined;
+
+	return {
+		"@type": "AggregateRating",
+		ratingValue: rating.ratingValue,
+		reviewCount: rating.reviewCount,
+		bestRating: 5,
+		worstRating: 1,
+	};
+}
+
 /** RealEstateAgent listing — name matches GBP exactly. */
 export function buildGbpRealEstateAgentFields(): Record<string, unknown> {
 	return {
 		name: SITE_BUSINESS_NAME,
 		email: getSiteEmail(),
 		...buildGbpOfficeLocationFields(),
+		...buildGbpServiceFields(),
 		employee: buildGbpAgentPerson(),
 	};
 }

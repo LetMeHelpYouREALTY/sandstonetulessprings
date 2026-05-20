@@ -11,6 +11,10 @@ export const SITE_HEADER_LABEL = SITE_GBP_BRAND_NAME;
 /** Default public contact email — must match GBP when email is listed there. */
 const DEFAULT_SITE_EMAIL = "drjansells@sandstonetulessprings.com";
 
+/** GBP call-tracking phone — must match this site's Google Business Profile. */
+export const GBP_PHONE_DISPLAY = "(702) 466-1509";
+export const GBP_PHONE_E164 = "+17024661509";
+
 export const AGENT_NAME = "Dr. Jan Duffy";
 export const AGENT_LICENSE = "S.0197614.LLC";
 export const BROKERAGE_NAME =

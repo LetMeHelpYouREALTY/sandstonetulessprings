@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PRIMARY_NAV, SITE_PAGES } from "@/lib/site-pages";
+import { getGbpPhoneDisplay, getGbpPhoneTelHref } from "@/lib/google-business-profile";
 import { SITE_BUSINESS_NAME, SITE_HEADER_LABEL } from "@/lib/site-contact";
 
 export function SiteHeader() {
@@ -13,7 +14,13 @@ export function SiteHeader() {
 					<span className="sr-only">{SITE_BUSINESS_NAME} — </span>
 					{SITE_HEADER_LABEL}
 				</Link>
-				<nav aria-label="Primary">
+				<nav aria-label="Primary" className="flex flex-col gap-3 sm:items-end">
+					<a
+						className="text-sm font-medium text-neutral-800 hover:underline dark:text-neutral-200"
+						href={getGbpPhoneTelHref()}
+					>
+						{getGbpPhoneDisplay()}
+					</a>
 					<ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-neutral-700 dark:text-neutral-300">
 						{PRIMARY_NAV.map((page) => (
 							<li key={page.path}>

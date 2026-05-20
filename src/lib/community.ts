@@ -5,6 +5,7 @@ import {
 	HOME_SALES_AREA_LABEL,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
+import { formatGbpOfficeHoursPlain, getGbpPhoneDisplay } from "@/lib/google-business-profile";
 import {
 	GEO_ALTERNATE_NAMES,
 	MASTER_PLAN_SEARCH_NAME,
@@ -92,8 +93,16 @@ export const COMMUNITY_FAQ = [
 	},
 ] as const;
 
+function formatGbpHoursFaqAnswer(): string {
+	return `${formatGbpOfficeHoursPlain()} Call ${getGbpPhoneDisplay()} or book online through Calendly.`;
+}
+
 /** Additional buyer-focused FAQs for /faq (AEO — agent vs builder). */
 export const BUYER_FAQ = [
+	{
+		question: `What are the office hours for ${SITE_BUSINESS_NAME}?`,
+		answer: formatGbpHoursFaqAnswer(),
+	},
 	{
 		question: "Do I need a REALTOR® to buy at Landings at Sandstone?",
 		answer:

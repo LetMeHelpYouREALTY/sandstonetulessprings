@@ -100,6 +100,7 @@ export default function HomePage() {
 					SITE_PAGES.buyers,
 					SITE_PAGES.faq,
 					SITE_PAGES.area,
+					SITE_PAGES.about,
 					SITE_PAGES.contact,
 				]}
 				title="Start here"

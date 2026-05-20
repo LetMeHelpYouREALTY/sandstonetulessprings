@@ -1,4 +1,9 @@
-import { SITE_BUSINESS_NAME, SITE_GBP_BRAND_NAME } from "@/lib/site-contact";
+import {
+	AGENT_LICENSE,
+	BROKERAGE_NAME,
+	SITE_BUSINESS_NAME,
+	SITE_GBP_BRAND_NAME,
+} from "@/lib/site-contact";
 import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
 import type { SitemapRoute } from "@/lib/site-url";
 
@@ -198,34 +203,34 @@ export const SITE_PAGES = {
 
 	},
 
-	contact: {
-
-		path: "/contact",
-
-		navLabel: "Contact",
-
-		title: `Contact — ${SITE_GBP_BRAND_NAME}`,
-
-		description: `${SITE_BUSINESS_NAME} — agent GBP office on Lone Mountain Rd (89032), homes sales area at N 5th St and Sandstone Ranch Pkw (89084), email, and directions.`,
-
-		h1: SITE_BUSINESS_NAME,
-
+	about: {
+		path: "/about",
+		navLabel: "About",
+		title: `About Dr. Jan Duffy — ${SITE_GBP_BRAND_NAME}`,
+		description: `${SITE_BUSINESS_NAME} — Nevada REALTOR® ${AGENT_LICENSE} with ${BROKERAGE_NAME}. Buyer agent for Sandstone at Tule Springs; office NAP matches Google Business Profile requirements.`,
+		h1: `${SITE_GBP_BRAND_NAME} — about Dr. Jan Duffy`,
 		keywords: [
-
 			SITE_BUSINESS_NAME,
-
-			`contact ${SITE_GBP_BRAND_NAME}`,
-
-			`schedule tour ${SITE_GBP_BRAND_NAME}`,
-
+			"Dr. Jan Duffy REALTOR North Las Vegas",
+			`${SITE_GBP_BRAND_NAME} buyer agent`,
 		],
-
 		changeFrequency: "yearly",
-
-		priority: 0.8,
-
+		priority: 0.75,
 	},
-
+	contact: {
+		path: "/contact",
+		navLabel: "Contact",
+		title: `Contact — ${SITE_GBP_BRAND_NAME}`,
+		description: `${SITE_BUSINESS_NAME} — agent GBP office on Lone Mountain Rd (89032), homes sales area at N 5th St and Sandstone Ranch Pkw (89084), phone (702) 466-1509, hours, email, and directions.`,
+		h1: SITE_BUSINESS_NAME,
+		keywords: [
+			SITE_BUSINESS_NAME,
+			`contact ${SITE_GBP_BRAND_NAME}`,
+			`schedule tour ${SITE_GBP_BRAND_NAME}`,
+		],
+		changeFrequency: "yearly",
+		priority: 0.8,
+	},
 } as const satisfies Record<string, SitePageConfig>;
 
 
@@ -269,6 +274,8 @@ export const PRIMARY_NAV = [
 	SITE_PAGES.faq,
 
 	SITE_PAGES.area,
+
+	SITE_PAGES.about,
 
 	SITE_PAGES.contact,
 

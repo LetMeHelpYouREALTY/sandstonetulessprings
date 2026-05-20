@@ -4,6 +4,7 @@ import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
 import {
 	buildGbpOfficeLocationFields,
 	buildGbpRealEstateAgentFields,
+	buildGbpServiceFields,
 } from "@/lib/schema/gbp-office";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -24,6 +25,7 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 				url: siteUrl,
 				email: getSiteEmail(),
 				...buildGbpOfficeLocationFields(),
+				...buildGbpServiceFields(),
 			},
 			{
 				"@type": "WebSite",
