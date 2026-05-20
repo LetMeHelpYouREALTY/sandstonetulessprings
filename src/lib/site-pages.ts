@@ -26,7 +26,7 @@ export const SITE_PAGES = {
 		title: "Homes at Sandstone Tule Springs, North Las Vegas",
 		description:
 			"Buyer representation for Sandstone at Tule Springs and KB Home Landings at Sandstone in North Las Vegas (89084). Dr. Jan Duffy, REALTOR®.",
-		h1: "Sandstone Tules Springs | Homes by Dr. Jan Duffy",
+		h1: "Sandstone Tule Springs | Homes by Dr. Jan Duffy",
 		keywords: [
 			"Sandstone Tule Springs homes",
 			"North Las Vegas new homes 89084",

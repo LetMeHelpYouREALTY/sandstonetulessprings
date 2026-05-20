@@ -1,6 +1,6 @@
 /** GBP business name — must match the Google Business Profile exactly. */
 export const SITE_BUSINESS_NAME =
-	"Sandstone Tules Springs | Homes by Dr. Jan Duffy";
+	"Sandstone Tule Springs | Homes by Dr. Jan Duffy";
 
 /** Default public contact email — must match GBP when email is listed there. */
 const DEFAULT_SITE_EMAIL = "drjansells@sandstonetulessprings.com";
