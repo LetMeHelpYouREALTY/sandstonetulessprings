@@ -10,6 +10,7 @@ import {
 	AGENT_NAME,
 	BROKERAGE_NAME,
 	getSiteEmail,
+	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
 import { SITE_PAGES } from "@/lib/site-pages";
 
@@ -20,11 +21,12 @@ export default function BuyersPage() {
 		<MarketingPage
 			page={SITE_PAGES.buyers}
 			showOfficeListings
+			showNapSummary
 			lead={
 				<p>
-					{AGENT_NAME} provides independent Nevada buyer representation for new
-					construction and resale homes in {MASTER_PLAN_NAME} — not employed by{" "}
-					{BUILDER_NAME}.
+					<strong>{SITE_BUSINESS_NAME}</strong> — {AGENT_NAME} provides
+					independent Nevada buyer representation for new construction and resale
+					homes in {MASTER_PLAN_NAME} — not employed by {BUILDER_NAME}.
 				</p>
 			}
 		>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PRIMARY_NAV, SITE_PAGES } from "@/lib/site-pages";
-import { SITE_BUSINESS_NAME } from "@/lib/site-contact";
+import { SITE_BUSINESS_NAME, SITE_HEADER_LABEL } from "@/lib/site-contact";
 
 export function SiteHeader() {
 	return (
@@ -11,7 +11,7 @@ export function SiteHeader() {
 					href={SITE_PAGES.home.path}
 				>
 					<span className="sr-only">{SITE_BUSINESS_NAME} — </span>
-					Sandstone Tule Springs
+					{SITE_HEADER_LABEL}
 				</Link>
 				<nav aria-label="Primary">
 					<ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-neutral-700 dark:text-neutral-300">

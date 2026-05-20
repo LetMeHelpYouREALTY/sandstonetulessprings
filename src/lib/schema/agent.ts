@@ -1,26 +1,25 @@
 import { MASTER_PLAN_NAME } from "@/lib/community";
-import {
-	AGENT_LICENSE,
-	AGENT_NAME,
-	BROKERAGE_NAME,
-	getSiteEmail,
-	SITE_BUSINESS_NAME,
-} from "@/lib/site-contact";
+import { BROKERAGE_NAME, SITE_BUSINESS_NAME } from "@/lib/site-contact";
+import { buildGbpRealEstateAgentFields } from "@/lib/schema/gbp-office";
 import { getSiteUrl } from "@/lib/site-url";
 
-/** Office/agent entity JSON-LD — align NAP with GBP when phone and suite are verified. */
+/** Office/agent entity JSON-LD — GBP business name on the listing entity. */
 export function buildRealEstateAgentJsonLd(): Record<string, unknown> {
 	const siteUrl = getSiteUrl();
+	const organizationId = `${siteUrl}/#organization`;
 
 	return {
 		"@context": "https://schema.org",
 		"@type": "RealEstateAgent",
 		"@id": `${siteUrl}/#real-estate-agent`,
-		name: AGENT_NAME,
-		description: `${SITE_BUSINESS_NAME} — buyer representation for ${MASTER_PLAN_NAME} and North Las Vegas (89084).`,
 		url: siteUrl,
-		email: getSiteEmail(),
-		identifier: AGENT_LICENSE,
+		description: `${SITE_BUSINESS_NAME} — buyer representation for ${MASTER_PLAN_NAME} and North Las Vegas (89084).`,
+		...buildGbpRealEstateAgentFields(),
+		worksFor: { "@id": organizationId },
+		parentOrganization: {
+			"@type": "Organization",
+			name: BROKERAGE_NAME,
+		},
 		areaServed: [
 			{
 				"@type": "City",
@@ -33,12 +32,12 @@ export function buildRealEstateAgentJsonLd(): Record<string, unknown> {
 			},
 			{
 				"@type": "PostalCode",
+				postalCode: "89032",
+			},
+			{
+				"@type": "PostalCode",
 				postalCode: "89084",
 			},
 		],
-		parentOrganization: {
-			"@type": "Organization",
-			name: BROKERAGE_NAME,
-		},
 	};
 }

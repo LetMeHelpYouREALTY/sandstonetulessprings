@@ -1,5 +1,5 @@
 import { CalendlyButton } from "@/components/calendly/CalendlyButton";
-import { getSiteEmail, mailtoHref } from "@/lib/site-contact";
+import { getSiteEmail, mailtoHref, SITE_GBP_BRAND_NAME } from "@/lib/site-contact";
 import { hasCalendlyConfigured } from "@/lib/calendly";
 
 type ScheduleCtaProps = {
@@ -33,7 +33,7 @@ export function ScheduleCta({
 	return (
 		<a
 			className="inline-flex items-center justify-center rounded-full border border-black/10 bg-neutral-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-neutral-800 dark:border-white/15 dark:bg-white dark:text-neutral-900"
-			href={mailtoHref("Schedule — Sandstone")}
+			href={mailtoHref(`Schedule — ${SITE_GBP_BRAND_NAME}`)}
 		>
 			Email to schedule — {getSiteEmail()}
 		</a>

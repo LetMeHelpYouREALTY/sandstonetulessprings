@@ -14,7 +14,12 @@ import {
 	SALES_OFFICE_APPOINTMENT_NOTE,
 } from "@/lib/community";
 import { buildPageMetadata } from "@/lib/page-metadata";
-import { formatCommunityAddress } from "@/lib/site-contact";
+import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
+import {
+	formatCommunityAddress,
+	HOME_SALES_AREA_LABEL,
+	SITE_BUSINESS_NAME,
+} from "@/lib/site-contact";
 import { SITE_PAGES } from "@/lib/site-pages";
 
 export const metadata: Metadata = buildPageMetadata(SITE_PAGES.newHomes);
@@ -23,13 +28,30 @@ export default function LandingsAtSandstonePage() {
 	return (
 		<MarketingPage
 			page={SITE_PAGES.newHomes}
+			showNapSummary
 			lead={
 				<p>
-					{BUILDER_COMMUNITY_NAME} is a {BUILDER_NAME} neighborhood inside{" "}
-					{MASTER_PLAN_NAME}. {COMMUNITY_HOME_SUMMARY}
+					<strong>{SITE_BUSINESS_NAME}</strong> — {BUILDER_COMMUNITY_NAME} is a{" "}
+					{BUILDER_NAME} neighborhood inside {MASTER_PLAN_NAME}. {COMMUNITY_HOME_SUMMARY}
 				</p>
 			}
 		>
+			<section className="space-y-3" aria-labelledby="sandstone-homes-for-sale">
+				<h2
+					id="sandstone-homes-for-sale"
+					className="text-xl font-semibold text-neutral-900 dark:text-neutral-100"
+				>
+					Where are {PRIMARY_HOME_SEARCH_QUERY} at Landings?
+				</h2>
+				<p>
+					{PRIMARY_HOME_SEARCH_QUERY} in {MASTER_PLAN_NAME} include KB Home&apos;s{" "}
+					{BUILDER_COMMUNITY_NAME} — two-story homes with backyards (per KB Home).
+					The {HOME_SALES_AREA_LABEL.toLowerCase()} is at{" "}
+					<strong>{formatCommunityAddress()}</strong>. Additional villages in the
+					master plan may be listed on kbhome.com; verify active communities with
+					the builder.
+				</p>
+			</section>
 			<section className="space-y-3" aria-labelledby="community-highlights">
 				<h2
 					id="community-highlights"
@@ -52,8 +74,8 @@ export default function LandingsAtSandstonePage() {
 					Where is the KB Home sales office?
 				</h2>
 				<p>
-					The sales office is at <strong>N. 5th St. and Sandstone Ranch Pkwy.</strong>,{" "}
-					{formatCommunityAddress()}.
+					The {HOME_SALES_AREA_LABEL.toLowerCase()} is at{" "}
+					<strong>{formatCommunityAddress()}</strong>.
 				</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="schedule-tour">

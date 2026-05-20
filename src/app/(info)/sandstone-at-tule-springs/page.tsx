@@ -7,11 +7,11 @@ import {
 	BUILDER_COMMUNITY_NAME,
 	BUILDER_NAME,
 	buildCommunityPlaceJsonLd,
-	MASTER_PLAN_GEO_SUMMARY,
+	getMasterPlanGeoSummary,
 	MASTER_PLAN_NAME,
 } from "@/lib/community";
 import { buildPageMetadata } from "@/lib/page-metadata";
-import { formatCommunityAddress } from "@/lib/site-contact";
+import { formatCommunityAddress, SITE_BUSINESS_NAME } from "@/lib/site-contact";
 import { SITE_PAGES } from "@/lib/site-pages";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -23,11 +23,12 @@ export default function MasterPlanPage() {
 	return (
 		<MarketingPage
 			page={SITE_PAGES.masterPlan}
+			showNapSummary
 			lead={
 				<p>
-					<strong>{MASTER_PLAN_NAME}</strong> is a master-planned community in
-					North Las Vegas, Nevada (89084), north of the I-215 and N. 5th St.
-					corridor.
+					<strong>{SITE_BUSINESS_NAME}</strong> — <strong>{MASTER_PLAN_NAME}</strong>{" "}
+					is a master-planned community in North Las Vegas, Nevada (89084), north of
+					the I-215 and N. 5th St. corridor.
 				</p>
 			}
 		>
@@ -36,7 +37,7 @@ export default function MasterPlanPage() {
 				<h2 id="what-is-sandstone" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
 					What is Sandstone at Tule Springs?
 				</h2>
-				<p>{MASTER_PLAN_GEO_SUMMARY}</p>
+				<p>{getMasterPlanGeoSummary()}</p>
 				<p>
 					Builder villages roll out in phases; {BUILDER_NAME} markets{" "}
 					{BUILDER_COMMUNITY_NAME} within this plan. For village-specific floor

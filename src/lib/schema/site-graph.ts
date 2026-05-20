@@ -1,12 +1,10 @@
 import { MASTER_PLAN_NAME } from "@/lib/community";
+import { BROKERAGE_NAME, getSiteEmail, SITE_BUSINESS_NAME } from "@/lib/site-contact";
+import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
 import {
-	AGENT_LICENSE,
-	AGENT_NAME,
-	BROKERAGE_NAME,
-	COMMUNITY_ADDRESS,
-	getSiteEmail,
-	SITE_BUSINESS_NAME,
-} from "@/lib/site-contact";
+	buildGbpOfficeLocationFields,
+	buildGbpRealEstateAgentFields,
+} from "@/lib/schema/gbp-office";
 import { getSiteUrl } from "@/lib/site-url";
 
 /** Organization + WebSite + RealEstateAgent — single @graph for GEO/GSC entity clarity. */
@@ -15,9 +13,6 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 	const organizationId = `${siteUrl}/#organization`;
 	const websiteId = `${siteUrl}/#website`;
 	const agentId = `${siteUrl}/#real-estate-agent`;
-
-	const { streetAddress, addressLocality, addressRegion, postalCode, addressCountry } =
-		COMMUNITY_ADDRESS;
 
 	return {
 		"@context": "https://schema.org",
@@ -28,14 +23,7 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 				name: SITE_BUSINESS_NAME,
 				url: siteUrl,
 				email: getSiteEmail(),
-				address: {
-					"@type": "PostalAddress",
-					streetAddress,
-					addressLocality,
-					addressRegion,
-					postalCode,
-					addressCountry,
-				},
+				...buildGbpOfficeLocationFields(),
 			},
 			{
 				"@type": "WebSite",
@@ -48,11 +36,9 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 			{
 				"@type": "RealEstateAgent",
 				"@id": agentId,
-				name: AGENT_NAME,
 				url: siteUrl,
-				email: getSiteEmail(),
-				identifier: AGENT_LICENSE,
-				description: `${SITE_BUSINESS_NAME} — buyer representation for ${MASTER_PLAN_NAME} and North Las Vegas (89084).`,
+				description: `${SITE_BUSINESS_NAME} — buyer representation for ${PRIMARY_HOME_SEARCH_QUERY} in ${MASTER_PLAN_NAME}, North Las Vegas (89084).`,
+				...buildGbpRealEstateAgentFields(),
 				worksFor: { "@id": organizationId },
 				parentOrganization: {
 					"@type": "Organization",
@@ -67,6 +53,10 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 							name: "Nevada",
 							addressCountry: "US",
 						},
+					},
+					{
+						"@type": "PostalCode",
+						postalCode: "89032",
 					},
 					{
 						"@type": "PostalCode",

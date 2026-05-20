@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { SITE_BUSINESS_NAME } from "@/lib/site-contact";
+import { SITE_BUSINESS_NAME, SITE_GBP_BRAND_NAME } from "@/lib/site-contact";
 
 export const alt = SITE_BUSINESS_NAME;
 export const size = { width: 1200, height: 630 };

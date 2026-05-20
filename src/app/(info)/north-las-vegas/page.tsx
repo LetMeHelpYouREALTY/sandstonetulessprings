@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MarketingPage } from "@/components/content/MarketingPage";
 import { PageLinks } from "@/components/content/PageLinks";
-import { MASTER_PLAN_GEO_SUMMARY, MASTER_PLAN_NAME } from "@/lib/community";
+import { getMasterPlanGeoSummary, MASTER_PLAN_NAME } from "@/lib/community";
 import { buildPageMetadata } from "@/lib/page-metadata";
-import { formatCommunityAddress } from "@/lib/site-contact";
+import { SITE_BUSINESS_NAME } from "@/lib/site-contact";
 import { SITE_PAGES } from "@/lib/site-pages";
 
 export const metadata: Metadata = buildPageMetadata(SITE_PAGES.area);
@@ -13,11 +13,12 @@ export default function NorthLasVegasPage() {
 	return (
 		<MarketingPage
 			page={SITE_PAGES.area}
+			showNapSummary
 			lead={
 				<p>
-					{MASTER_PLAN_NAME} sits in North Las Vegas (Clark County), with
-					convenient access to the I-215 belt route and the broader Las Vegas
-					Valley.
+					<strong>{SITE_BUSINESS_NAME}</strong> — {MASTER_PLAN_NAME} sits in North
+					Las Vegas (Clark County), with convenient access to the I-215 belt route
+					and the broader Las Vegas Valley.
 				</p>
 			}
 		>
@@ -25,10 +26,7 @@ export default function NorthLasVegasPage() {
 				<h2 id="zip-and-access" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
 					What zip code is Sandstone in?
 				</h2>
-				<p>
-					The community sales area is in <strong>89084</strong> at{" "}
-					{formatCommunityAddress()}. {MASTER_PLAN_GEO_SUMMARY}
-				</p>
+				<p>{getMasterPlanGeoSummary()}</p>
 			</section>
 			<section className="space-y-3" aria-labelledby="freeway-access">
 				<h2

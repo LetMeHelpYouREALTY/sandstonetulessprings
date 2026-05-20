@@ -10,9 +10,11 @@ import {
 	SALES_OFFICE_APPOINTMENT_NOTE,
 } from "@/lib/community";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
 import {
 	formatCommunityAddress,
 	getCommunityDirectionsUrl,
+	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
 import { SITE_PAGES } from "@/lib/site-pages";
 
@@ -22,17 +24,22 @@ export default function VisitPage() {
 	return (
 		<MarketingPage
 			page={SITE_PAGES.visit}
+			showNapSummary
 			lead={
 				<p>
-					The {BUILDER_NAME} sales office for {BUILDER_COMMUNITY_NAME} is at{" "}
-					{formatCommunityAddress()}.
+					<strong>{SITE_BUSINESS_NAME}</strong> — the {BUILDER_NAME} sales area
+					for {BUILDER_COMMUNITY_NAME} is at {formatCommunityAddress()}.
 				</p>
 			}
 		>
 			<section className="space-y-4" aria-labelledby="i215-directions">
 				<h2 id="i215-directions" className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
-					Driving directions from I-215
+					How do you get to {PRIMARY_HOME_SEARCH_QUERY} from I-215?
 				</h2>
+				<p>
+					Follow these steps to reach the KB Home sales area for{" "}
+					{BUILDER_COMMUNITY_NAME} at {formatCommunityAddress()}.
+				</p>
 				<ol className="list-decimal space-y-2 pl-5">
 					{DRIVING_DIRECTIONS_FROM_I215.map((step) => (
 						<li key={step}>{step}</li>

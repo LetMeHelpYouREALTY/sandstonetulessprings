@@ -1,6 +1,6 @@
 # sandstonetulessprings.com — agent & developer guide
 
-Hyperlocal marketing site for **Sandstone Tules Springs | Homes by Dr. Jan Duffy** (1:1 Google Business Profile). NAP and community facts live in `src/lib/site-contact.ts` and `src/lib/community.ts`.
+Hyperlocal marketing site for **Sandstone Tules Springs | Homes By Dr. Jan Duffy** (1:1 Google Business Profile; agent office 89032, homes sales area 89084). Community master plan copy uses **Sandstone at Tule Springs** (builder name — distinct from GBP business name). NAP and community facts live in `src/lib/site-contact.ts` and `src/lib/community.ts`.
 
 ## Portfolio conversion stack (required pattern)
 

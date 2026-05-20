@@ -27,7 +27,7 @@ export function buildPageMetadata(page: SitePageConfig): Metadata {
 					url: "/opengraph-image",
 					width: 1200,
 					height: 630,
-					alt: page.title,
+					alt: `${page.h1} | ${SITE_BUSINESS_NAME}`,
 				},
 			],
 		},

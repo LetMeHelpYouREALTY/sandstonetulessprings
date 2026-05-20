@@ -1,14 +1,6 @@
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import {
-	AGENT_LICENSE,
-	BROKERAGE_NAME,
-	formatCommunityAddress,
-	getCommunityDirectionsUrl,
-	getSiteEmail,
-	SITE_BUSINESS_NAME,
-} from "@/lib/site-contact";
-import { ScheduleCta } from "@/components/calendly/ScheduleCta";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildRootMetadata } from "@/lib/metadata/root-metadata";
@@ -28,39 +20,7 @@ export default function RootLayout({
 				<JsonLd data={buildSiteGraphJsonLd()} />
 				<SiteHeader />
 				{children}
-				<footer className="mt-auto border-t border-black/10 px-6 py-6 text-center text-sm text-neutral-600 dark:border-white/10 dark:text-neutral-400">
-					<p className="font-medium text-neutral-900 dark:text-neutral-100">
-						{SITE_BUSINESS_NAME}
-					</p>
-					<address className="mt-2 not-italic">
-						{formatCommunityAddress()}
-					</address>
-					<div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-						<ScheduleCta utmMedium="footer" buttonLabel="Schedule with Dr. Jan" />
-					</div>
-					<p className="mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-						<a
-							className="hover:underline hover:underline-offset-4"
-							href={getCommunityDirectionsUrl()}
-							rel="noopener noreferrer"
-							target="_blank"
-						>
-							Directions
-						</a>
-						<span aria-hidden className="text-neutral-400">
-							·
-						</span>
-						<a
-							className="hover:underline hover:underline-offset-4"
-							href={`mailto:${getSiteEmail()}`}
-						>
-							{getSiteEmail()}
-						</a>
-					</p>
-					<p className="mt-2 text-xs">
-						{BROKERAGE_NAME} · License {AGENT_LICENSE}
-					</p>
-				</footer>
+				<SiteFooter />
 				<SpeedInsights />
 			</body>
 		</html>

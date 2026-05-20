@@ -7,6 +7,7 @@ import {
 	hasRealScoutAgentId,
 	REALSCOUT_OFFICE_LISTINGS_DEFAULTS,
 } from "@/lib/realscout-config";
+import { SITE_BUSINESS_NAME } from "@/lib/site-contact";
 
 type RealScoutOfficeListingsDeferredProps = {
 	headingId?: string;
@@ -68,7 +69,7 @@ export function RealScoutOfficeListingsDeferred({
 					id={headingId}
 					className="mb-6 text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100"
 				>
-					Homes for sale near Sandstone at Tule Springs
+					Homes for sale — {SITE_BUSINESS_NAME}
 				</h2>
 				<realscout-office-listings
 					agent-encoded-id={agentId}

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SiteNapSummary } from "@/components/layout/SiteNapSummary";
 import { RealScoutOfficeListingsDeferred } from "@/components/realscout/RealScoutOfficeListingsDeferred";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -12,6 +13,8 @@ type MarketingPageProps = {
 	children: ReactNode;
 	/** Convert routes only (/, /buyers, /contact) — deferred RealScout below hero. */
 	showOfficeListings?: boolean;
+	/** Info routes — compact dual-location NAP above page footer. */
+	showNapSummary?: boolean;
 };
 
 export function MarketingPage({
@@ -19,6 +22,7 @@ export function MarketingPage({
 	lead,
 	children,
 	showOfficeListings = false,
+	showNapSummary = false,
 }: MarketingPageProps) {
 	const crumbs = breadcrumbTrail(page);
 
@@ -45,6 +49,7 @@ export function MarketingPage({
 
 			<div className="mx-auto w-full max-w-3xl flex-1 space-y-8 px-6 pb-12 text-neutral-700 sm:px-10 sm:pb-16 dark:text-neutral-300">
 				{children}
+				{showNapSummary ? <SiteNapSummary /> : null}
 			</div>
 		</article>
 	);
