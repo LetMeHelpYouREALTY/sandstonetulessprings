@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { MarketingPage } from "@/components/content/MarketingPage";
 import { PageLinks } from "@/components/content/PageLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -61,8 +62,18 @@ export default function MasterPlanPage() {
 					for step-by-step driving directions from I-215.
 				</p>
 			</section>
+			<AmenityMapSection
+				title={`What's near ${MASTER_PLAN_NAME}?`}
+				lead="Explore groceries, dining, parks, healthcare, and schools around the 89084 corridor."
+			/>
 			<PageLinks
-				pages={[SITE_PAGES.newHomes, SITE_PAGES.visit, SITE_PAGES.buyers, SITE_PAGES.area]}
+				pages={[
+					SITE_PAGES.newHomes,
+					SITE_PAGES.visit,
+					SITE_PAGES.amenities,
+					SITE_PAGES.buyers,
+					SITE_PAGES.area,
+				]}
 				title="Related pages"
 			/>
 		</MarketingPage>

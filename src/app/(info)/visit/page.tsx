@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { MarketingPage } from "@/components/content/MarketingPage";
 import {
 	BUILDER_COMMUNITY_NAME,
@@ -71,6 +72,10 @@ export default function VisitPage() {
 					Open directions in Google Maps
 				</a>
 			</p>
+			<AmenityMapSection
+				title="What else is near the sales area?"
+				lead="After your I-215 drive, compare groceries, healthcare, and recreation around the 89084 corridor."
+			/>
 			<p>
 				<Link className="underline underline-offset-4" href={SITE_PAGES.buyers.path}>
 					Buyer representation with Dr. Jan Duffy

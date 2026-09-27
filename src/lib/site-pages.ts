@@ -175,6 +175,21 @@ export const SITE_PAGES = {
 
 	},
 
+	amenities: {
+		path: "/amenities",
+		navLabel: "Amenities",
+		title: "Nearby Amenities — Sandstone at Tule Springs | North Las Vegas 89084",
+		description: `${SITE_BUSINESS_NAME} — restaurants, groceries, parks, golf, healthcare, schools, and shopping near Sandstone at Tule Springs in North Las Vegas (89084). Interactive map and hyperlocal buyer guide from Dr. Jan Duffy.`,
+		h1: "Nearby amenities in Sandstone at Tule Springs, North Las Vegas",
+		keywords: [
+			SITE_BUSINESS_NAME,
+			"amenities near Sandstone at Tule Springs",
+			"grocery stores North Las Vegas 89084",
+			`${SITE_GBP_BRAND_NAME} area guide`,
+		],
+		changeFrequency: "monthly",
+		priority: 0.75,
+	},
 	area: {
 
 		path: "/north-las-vegas",
@@ -268,6 +283,8 @@ export const PRIMARY_NAV = [
 	SITE_PAGES.newHomes,
 
 	SITE_PAGES.visit,
+
+	SITE_PAGES.amenities,
 
 	SITE_PAGES.buyers,
 

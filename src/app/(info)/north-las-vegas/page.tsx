@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { MarketingPage } from "@/components/content/MarketingPage";
 import { PageLinks } from "@/components/content/PageLinks";
 import { getMasterPlanGeoSummary, MASTER_PLAN_NAME } from "@/lib/community";
@@ -45,17 +46,10 @@ export default function NorthLasVegasPage() {
 					.
 				</p>
 			</section>
-			<section className="space-y-3" aria-labelledby="nearby-lifestyle">
-				<h2 id="nearby-lifestyle" className="font-display text-[length:var(--text-xl)] text-lux-text">
-					What is nearby for day-to-day living?
-				</h2>
-				<p>
-					North Las Vegas offers parks, local retail, and quick freeway access.
-					KB Home highlights proximity to recreation destinations in the valley,
-					including areas toward Mount Charleston and Lee Canyon for outdoor
-					trips — verify drive times from your preferred lot before you buy.
-				</p>
-			</section>
+			<AmenityMapSection
+				title="What is nearby for day-to-day living?"
+				lead="North Las Vegas offers parks, local retail, and quick freeway access. KB Home highlights recreation toward Mount Charleston and Lee Canyon — verify drive times from your lot."
+			/>
 			<section className="space-y-3" aria-labelledby="tule-springs">
 				<h2 id="tule-springs" className="font-display text-[length:var(--text-xl)] text-lux-text">
 					Why is it called Tule Springs?

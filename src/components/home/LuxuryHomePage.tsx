@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ScheduleCta } from "@/components/calendly/ScheduleCta";
 import { GbpOfficeCtas } from "@/components/gbp/GbpOfficeCtas";
 import { RealScoutOfficeListingsDeferred } from "@/components/realscout/RealScoutOfficeListingsDeferred";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
 	BUILDER_COMMUNITY_NAME,
@@ -225,6 +226,8 @@ export function LuxuryHomePage() {
 					</ul>
 				</div>
 			</section>
+
+			<AmenityMapSection variant="lux-section" />
 
 			{/* FAQ */}
 			<section
