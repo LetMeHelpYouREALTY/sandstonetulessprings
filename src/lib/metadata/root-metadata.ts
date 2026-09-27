@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import {
-	AGENT_GBP_OFFICE_LABEL,
-	formatCommunityAddress,
-	formatOfficeAddress,
-	HOME_SALES_AREA_LABEL,
-	SITE_BUSINESS_NAME,
-} from "@/lib/site-contact";
-import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
+import { SITE_BUSINESS_NAME } from "@/lib/site-contact";
 import { getGoogleSiteVerification } from "@/lib/metadata/google-verification";
 import { getSiteUrl } from "@/lib/site-url";
 
-const DEFAULT_DESCRIPTION = `${SITE_BUSINESS_NAME} — ${PRIMARY_HOME_SEARCH_QUERY} in North Las Vegas (89084). ${AGENT_GBP_OFFICE_LABEL}: ${formatOfficeAddress()}. ${HOME_SALES_AREA_LABEL}: ${formatCommunityAddress()}. Buyer representation for Sandstone at Tule Springs and KB Home Landings.`;
+const DEFAULT_DESCRIPTION =
+	"Buyer representation for Sandstone Tule Springs homes in North Las Vegas (89084). KB Home Landings, resale, and tours with Dr. Jan Duffy. (702) 466-1509.";
 
 /** Root layout metadata — metadataBase, defaults, GSC verification, OG/Twitter fallbacks. */
 export function buildRootMetadata(): Metadata {

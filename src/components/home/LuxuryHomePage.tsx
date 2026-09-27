@@ -4,6 +4,7 @@ import { GbpOfficeCtas } from "@/components/gbp/GbpOfficeCtas";
 import { RealScoutOfficeListingsDeferred } from "@/components/realscout/RealScoutOfficeListingsDeferred";
 import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { buildBreadcrumbJsonLd } from "@/lib/schema/breadcrumb";
 import {
 	BUILDER_COMMUNITY_NAME,
 	buildCommunityFaqJsonLd,
@@ -25,7 +26,7 @@ import {
 	SITE_BUSINESS_NAME,
 	SITE_GBP_BRAND_NAME,
 } from "@/lib/site-contact";
-import { SITE_PAGES } from "@/lib/site-pages";
+import { breadcrumbTrail, SITE_PAGES } from "@/lib/site-pages";
 import { getSiteUrl } from "@/lib/site-url";
 
 export function LuxuryHomePage() {
@@ -37,6 +38,7 @@ export function LuxuryHomePage() {
 				data={[
 					buildCommunityPlaceJsonLd(siteUrl),
 					buildCommunityFaqJsonLd(HOME_PAGE_FAQ),
+					buildBreadcrumbJsonLd(breadcrumbTrail(SITE_PAGES.home)),
 				]}
 			/>
 
