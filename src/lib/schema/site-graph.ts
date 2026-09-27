@@ -1,5 +1,11 @@
 import { MASTER_PLAN_NAME } from "@/lib/community";
-import { BROKERAGE_NAME, getSiteEmail, SITE_BUSINESS_NAME } from "@/lib/site-contact";
+import { AMENITY_MAP_CENTER } from "@/lib/amenities/config";
+import {
+	BROKERAGE_NAME,
+	COMMUNITY_ADDRESS,
+	getSiteEmail,
+	SITE_BUSINESS_NAME,
+} from "@/lib/site-contact";
 import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
 import {
 	buildGbpOfficeLocationFields,
@@ -63,6 +69,23 @@ export function buildSiteGraphJsonLd(): Record<string, unknown> {
 					{
 						"@type": "PostalCode",
 						postalCode: "89084",
+					},
+					{
+						"@type": "Place",
+						name: MASTER_PLAN_NAME,
+						address: {
+							"@type": "PostalAddress",
+							streetAddress: COMMUNITY_ADDRESS.streetAddress,
+							addressLocality: COMMUNITY_ADDRESS.addressLocality,
+							addressRegion: COMMUNITY_ADDRESS.addressRegion,
+							postalCode: COMMUNITY_ADDRESS.postalCode,
+							addressCountry: COMMUNITY_ADDRESS.addressCountry,
+						},
+						geo: {
+							"@type": "GeoCoordinates",
+							latitude: AMENITY_MAP_CENTER.latitude,
+							longitude: AMENITY_MAP_CENTER.longitude,
+						},
 					},
 				],
 			},

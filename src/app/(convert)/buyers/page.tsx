@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { MarketingPage } from "@/components/content/MarketingPage";
 import { PageLinks } from "@/components/content/PageLinks";
 import { BUILDER_NAME, MASTER_PLAN_NAME } from "@/lib/community";
@@ -70,11 +71,21 @@ export default function BuyersPage() {
 					</a>
 				</p>
 			</section>
+			<AmenityMapSection
+				title="What's near the homes you're comparing?"
+				lead="Map everyday amenities around Sandstone at Tule Springs while you review listings."
+			/>
 			<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 				{BROKERAGE_NAME}. Supervising brokerage disclosure per Nevada requirements.
 			</p>
 			<PageLinks
-				pages={[SITE_PAGES.newHomes, SITE_PAGES.visit, SITE_PAGES.faq, SITE_PAGES.contact]}
+				pages={[
+					SITE_PAGES.newHomes,
+					SITE_PAGES.visit,
+					SITE_PAGES.amenities,
+					SITE_PAGES.faq,
+					SITE_PAGES.contact,
+				]}
 				title="Related pages"
 			/>
 		</MarketingPage>

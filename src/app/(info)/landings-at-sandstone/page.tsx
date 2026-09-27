@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { MarketingPage } from "@/components/content/MarketingPage";
 import { PageLinks } from "@/components/content/PageLinks";
 import {
@@ -109,8 +110,18 @@ export default function LandingsAtSandstonePage() {
 					signup.
 				</p>
 			</section>
+			<AmenityMapSection
+				title="What's near Landings at Sandstone?"
+				lead="See dining, groceries, parks, and healthcare around the KB Home sales area in 89084."
+			/>
 			<PageLinks
-				pages={[SITE_PAGES.visit, SITE_PAGES.buyers, SITE_PAGES.faq, SITE_PAGES.contact]}
+				pages={[
+					SITE_PAGES.visit,
+					SITE_PAGES.amenities,
+					SITE_PAGES.buyers,
+					SITE_PAGES.faq,
+					SITE_PAGES.contact,
+				]}
 				title="Next steps"
 			/>
 		</MarketingPage>
