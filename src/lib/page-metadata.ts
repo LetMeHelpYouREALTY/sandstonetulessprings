@@ -5,8 +5,13 @@ import { SITE_BUSINESS_NAME } from "@/lib/site-contact";
 export function buildPageMetadata(page: SitePageConfig): Metadata {
 	const canonical = page.path === "/" ? "/" : page.path;
 
+	const title =
+		page.path === "/"
+			? { absolute: page.title }
+			: page.title;
+
 	return {
-		title: page.title,
+		title,
 		description: page.description,
 		keywords: [...page.keywords],
 		alternates: {
