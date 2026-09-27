@@ -1,8 +1,8 @@
 import type { AmenityCategoryId, AmenityPlace } from "@/lib/amenities/types";
 
 /**
- * Verified nearby destinations for SSR copy, fallback map list, and ItemList schema.
- * Addresses from published retailer / government / hospital listings (2026).
+ * Hyperlocal destinations for SSR copy, map fallback, and ItemList schema.
+ * Name and address verified against each `sourceUrl` (2026-09).
  */
 export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 	{
@@ -14,6 +14,8 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89084",
 		schemaType: "GroceryStore",
+		sourceUrl:
+			"https://www.smithsfoodanddrug.com/stores/grocery/nv/north-las-vegas/aliante-n-las-vegas/706/00338",
 	},
 	{
 		id: "target-n5th",
@@ -24,6 +26,7 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89084",
 		schemaType: "Store",
+		sourceUrl: "https://www.target.com/sl/north-las-vegas/5th-st/3344",
 	},
 	{
 		id: "aliante-casino",
@@ -34,6 +37,7 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89084",
 		schemaType: "Restaurant",
+		sourceUrl: "https://www.aliantegaming.com/",
 	},
 	{
 		id: "aliante-golf",
@@ -44,6 +48,7 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89084",
 		schemaType: "GolfCourse",
+		sourceUrl: "https://www.aliantegolfclub.com/",
 	},
 	{
 		id: "floyd-lamb-park",
@@ -54,6 +59,8 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89131",
 		schemaType: "Park",
+		sourceUrl:
+			"https://www.lasvegasnevada.gov/Residents/Parks-Facilities/Floyd-Lamb-Park",
 	},
 	{
 		id: "centennial-hills-hospital",
@@ -64,6 +71,7 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89149",
 		schemaType: "Hospital",
+		sourceUrl: "https://www.centennialhillshospital.com/",
 	},
 	{
 		id: "cvs-aliante",
@@ -74,6 +82,8 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89084",
 		schemaType: "Pharmacy",
+		sourceUrl:
+			"https://www.cvs.com/store-locator/north-las-vegas-nv-pharmacies/7285-aliante-pkwy-north-las-vegas-nv-89084/storeid=7251",
 	},
 	{
 		id: "walgreens-aliante",
@@ -84,6 +94,7 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89084",
 		schemaType: "Pharmacy",
+		sourceUrl: "https://www.walgreens.com/storelocator/storeDetails.jsp?stnum=2590",
 	},
 	{
 		id: "ferron-elementary",
@@ -94,6 +105,7 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89084",
 		schemaType: "School",
+		sourceUrl: "https://ferrones.ccsd.net/",
 	},
 	{
 		id: "centennial-hills-ymca",
@@ -104,6 +116,7 @@ export const CURATED_AMENITY_PLACES: readonly AmenityPlace[] = [
 		addressRegion: "NV",
 		postalCode: "89131",
 		schemaType: "SportsActivityLocation",
+		sourceUrl: "https://www.ymcasnv.org/locations/centennial-hills/",
 	},
 ] as const;
 

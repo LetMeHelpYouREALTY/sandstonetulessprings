@@ -13,7 +13,7 @@ export const AMENITY_CONTENT_SECTIONS: readonly AmenityContentSection[] = [
 		title: "Dining near Sandstone at Tule Springs",
 		paragraphs: [
 			`Aliante Casino + Hotel on Aliante Pkwy anchors sit-down dining, casual options, and entertainment north of the ${MASTER_PLAN_NAME} corridor. Many buyers also drive to Smith's plaza and nearby chain restaurants along Aliante and Centennial Pkwy.`,
-			"Use the map filters for live restaurant results when your Google Maps API key is configured; otherwise see the curated list below the map.",
+			"Use the map filters to explore restaurant results near the corridor, or see the featured list below the map.",
 		],
 	},
 	{

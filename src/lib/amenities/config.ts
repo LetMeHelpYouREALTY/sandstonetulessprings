@@ -24,7 +24,7 @@ export const AMENITY_PAGE_COMMUNITY_LABEL = MASTER_PLAN_NAME;
 
 export const AMENITY_MAP_COMMUNITY_DESCRIPTION = `Homes sales area near ${formatCommunityAddress()} — Sandstone at Tule Springs / Landings corridor (89084).`;
 
-/** Master-planned family community — full category set (not 55+ or high-rise ordering). */
+/** Master-planned community — full category set (not 55+ or high-rise ordering). */
 export const AMENITY_CATEGORIES: readonly AmenityCategory[] = [
 	{
 		id: "restaurants",
@@ -91,7 +91,7 @@ export function getAmenityCategory(
 
 export function buildCommunityMapEmbedUrl(): string {
 	const { latitude, longitude } = AMENITY_MAP_CENTER;
-	return `https://maps.google.com/maps?q=${latitude},${longitude}&z=${AMENITY_MAP_DEFAULT_ZOOM}&output=embed`;
+	return `https://www.google.com/maps?q=${latitude},${longitude}&z=${AMENITY_MAP_DEFAULT_ZOOM}&output=embed`;
 }
 
 export function buildPlaceDirectionsUrl(placeName: string, address: string): string {

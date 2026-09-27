@@ -3,10 +3,13 @@ export type AmenityPlace = {
 	id: string;
 	name: string;
 	category: AmenityCategoryId;
+	/** Verified street address — omit from schema when undefined. */
 	streetAddress: string;
 	addressLocality: string;
 	addressRegion: string;
 	postalCode: string;
+	/** Official business / agency page used to verify this listing. */
+	sourceUrl: string;
 	/** Schema.org type for ItemList entries. */
 	schemaType:
 		| "Restaurant"
@@ -19,8 +22,6 @@ export type AmenityPlace = {
 		| "School"
 		| "SportsActivityLocation"
 		| "Place";
-	/** Optional — only when sourced from Places API, not invented. */
-	rating?: number;
 	latitude?: number;
 	longitude?: number;
 };

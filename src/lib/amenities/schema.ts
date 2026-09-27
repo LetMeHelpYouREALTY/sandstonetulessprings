@@ -36,6 +36,7 @@ export function buildAmenitiesItemListJsonLd(): Record<string, unknown> {
 			item: {
 				"@type": place.schemaType,
 				name: place.name,
+				url: place.sourceUrl,
 				address: {
 					"@type": "PostalAddress",
 					streetAddress: place.streetAddress,

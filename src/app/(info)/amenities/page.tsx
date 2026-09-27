@@ -43,7 +43,7 @@ export default function AmenitiesPage() {
 				variant="marketing"
 				eyebrow=""
 				title="Interactive amenity map"
-				lead="Use the category filters to explore live Google Places results when your API key is configured, or browse verified destinations in the list below."
+				lead="Use the category filters to explore nearby dining, shopping, parks, and services around the Sandstone at Tule Springs corridor, or browse featured destinations in the list below."
 				showFullStaticList
 				hideAmenitiesPageLink
 			/>
