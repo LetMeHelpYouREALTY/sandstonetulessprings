@@ -9,7 +9,6 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 import { buildGbpAgentPerson } from "@/lib/schema/gbp-office";
 import { getSiteUrl } from "@/lib/site-url";
 import {
-	AGENT_LICENSE,
 	AGENT_NAME,
 	BROKERAGE_NAME,
 	SITE_BUSINESS_NAME,
@@ -59,8 +58,7 @@ export default function AboutPage() {
 					Who is {AGENT_NAME}?
 				</h2>
 				<p>
-					{AGENT_NAME} is a Nevada REALTOR® (license {AGENT_LICENSE}) with{" "}
-					{BROKERAGE_NAME}. She represents home buyers — not KB Home — for new
+					{AGENT_NAME} is a Top 1% Las Vegas REALTOR®, in real estate since 1983. She represents home buyers — not KB Home — for new
 					construction and resale in the Sandstone at Tule Springs area, including
 					showings near the homes sales area in zip code 89084.
 				</p>

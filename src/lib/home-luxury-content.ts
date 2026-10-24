@@ -1,9 +1,7 @@
 import type { SitePageConfig } from "@/lib/site-pages";
 import { SITE_PAGES } from "@/lib/site-pages";
 import {
-	AGENT_LICENSE,
 	AGENT_NAME,
-	BROKERAGE_NAME,
 	formatOfficeAddress,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
@@ -17,13 +15,13 @@ export type LuxuryCard = {
 };
 
 export const TRUST_SIGNALS = [
-	{
-		value: AGENT_LICENSE,
-		label: `Nevada real estate license — ${AGENT_NAME}`,
+		{
+		value: "Top 1%",
+		label: "Las Vegas REALTOR®",
 	},
 	{
-		value: "Berkshire Hathaway",
-		label: `${BROKERAGE_NAME} supervision`,
+		value: "Since 1983",
+		label: `${AGENT_NAME} in real estate`,
 	},
 	{
 		value: "Senior-first design",

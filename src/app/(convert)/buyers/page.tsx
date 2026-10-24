@@ -8,7 +8,6 @@ import { ScheduleCta } from "@/components/calendly/ScheduleCta";
 import { CalendlyButton } from "@/components/calendly/CalendlyButton";
 import {
 	AGENT_NAME,
-	BROKERAGE_NAME,
 	getSiteEmail,
 	SITE_BUSINESS_NAME,
 } from "@/lib/site-contact";
@@ -70,9 +69,7 @@ export default function BuyersPage() {
 					</a>
 				</p>
 			</section>
-			<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
-				{BROKERAGE_NAME}. Supervising brokerage disclosure per Nevada requirements.
-			</p>
+			
 			<PageLinks
 				pages={[SITE_PAGES.newHomes, SITE_PAGES.visit, SITE_PAGES.faq, SITE_PAGES.contact]}
 				title="Related pages"

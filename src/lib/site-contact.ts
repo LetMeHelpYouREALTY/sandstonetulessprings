@@ -36,8 +36,7 @@ export const OFFICE_ADDRESS = {
 } as const;
 
 /** Visible office label when citing the agent's Berkshire office location. */
-export const OFFICE_DISPLAY_NAME =
-	"Dr. Jan Duffy - Berkshire Hathaway HomeServices";
+export const OFFICE_DISPLAY_NAME = "Dr. Jan Duffy, REALTOR®";
 
 /** Homes sales area (KB Home sales office intersection — not the agent GBP office). */
 export const COMMUNITY_ADDRESS = {

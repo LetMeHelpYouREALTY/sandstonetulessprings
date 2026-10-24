@@ -103,8 +103,7 @@ export function SiteFooter() {
 				</p>
 				<div className="mt-8 max-w-[var(--measure)] border-t border-[var(--border-subtle)] pt-8 text-[length:var(--text-sm)] text-lux-muted-soft">
 					<p className="m-0 mb-2">
-						{AGENT_NAME}, REALTOR® · Nevada license {AGENT_LICENSE} · Supervised by{" "}
-						{BROKERAGE_NAME} (NV NAC 645.610).
+						{BROKERAGE_NAME} since September 2008 · License {AGENT_LICENSE}
 					</p>
 					<p className="m-0 mb-2">
 						Dr. Jan Duffy is a buyer&apos;s agent for Sandstone at Tule Springs — not

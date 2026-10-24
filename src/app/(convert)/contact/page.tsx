@@ -10,8 +10,6 @@ import {
 } from "@/lib/community";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import {
-	AGENT_LICENSE,
-	BROKERAGE_NAME,
 	formatCommunityAddress,
 	getCommunityDirectionsUrl,
 	getSiteEmail,
@@ -74,9 +72,7 @@ export default function ContactPage() {
 					eventType="tour"
 					utm={{ utmMedium: "contact", utmCampaign: "inline-tour" }}
 				/>
-				<p className="text-sm">
-					{BROKERAGE_NAME} · License {AGENT_LICENSE}
-				</p>
+				
 				<p className="text-[length:var(--text-sm)] text-lux-muted-soft">
 					Email:{" "}
 					<a className="underline underline-offset-4" href={`mailto:${getSiteEmail()}`}>

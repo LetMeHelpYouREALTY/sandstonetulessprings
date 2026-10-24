@@ -1,6 +1,4 @@
 import {
-	AGENT_LICENSE,
-	BROKERAGE_NAME,
 	SITE_BUSINESS_NAME,
 	SITE_GBP_BRAND_NAME,
 } from "@/lib/site-contact";
@@ -208,7 +206,7 @@ export const SITE_PAGES = {
 		path: "/about",
 		navLabel: "About",
 		title: `About Dr. Jan Duffy — ${SITE_GBP_BRAND_NAME}`,
-		description: `${SITE_BUSINESS_NAME} — Nevada REALTOR® ${AGENT_LICENSE} with ${BROKERAGE_NAME}. Buyer agent for Sandstone at Tule Springs; office NAP matches Google Business Profile requirements.`,
+		description: `${SITE_BUSINESS_NAME} — Nevada REALTOR® in real estate since 1983. Buyer agent for Sandstone at Tule Springs; office NAP matches Google Business Profile requirements.`,
 		h1: `${SITE_GBP_BRAND_NAME} — about Dr. Jan Duffy`,
 		keywords: [
 			SITE_BUSINESS_NAME,

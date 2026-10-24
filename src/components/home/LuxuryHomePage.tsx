@@ -20,7 +20,6 @@ import {
 import { PRIMARY_HOME_SEARCH_QUERY } from "@/lib/seo-search-intent";
 import {
 	AGENT_NAME,
-	BROKERAGE_NAME,
 	formatOfficeAddress,
 	SITE_BUSINESS_NAME,
 	SITE_GBP_BRAND_NAME,
@@ -76,10 +75,7 @@ export function LuxuryHomePage() {
 								<strong className="block text-lux-text">Agent office</strong>
 								{formatOfficeAddress()}
 							</div>
-							<div>
-								<strong className="block text-lux-text">Brokerage</strong>
-								{BROKERAGE_NAME}
-							</div>
+							
 						</div>
 					</div>
 					<aside
