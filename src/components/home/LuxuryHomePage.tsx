@@ -22,7 +22,6 @@ import {
 	AGENT_NAME,
 	formatOfficeAddress,
 	SITE_BUSINESS_NAME,
-	SITE_GBP_BRAND_NAME,
 } from "@/lib/site-contact";
 import { breadcrumbTrail, SITE_PAGES } from "@/lib/site-pages";
 import { getSiteUrl } from "@/lib/site-url";
@@ -52,7 +51,7 @@ export function LuxuryHomePage() {
 							id="home-hero-heading"
 							className="font-display text-[length:var(--text-hero)] text-lux-text"
 						>
-							{SITE_GBP_BRAND_NAME} — calm, clear guidance for discerning buyers
+							{SITE_PAGES.home.h1}
 						</h1>
 						<p className="mt-6 max-w-[var(--measure)] text-[length:var(--text-lg)] text-lux-muted">
 							<strong className="text-lux-text">Answer:</strong> {SITE_BUSINESS_NAME}{" "}
