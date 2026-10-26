@@ -22,12 +22,16 @@ export function buildRealEstateAgentJsonLd(): Record<string, unknown> {
 		},
 		areaServed: [
 			{
-				"@type": "City",
-				name: "North Las Vegas",
+				"@type": "Place",
+				name: MASTER_PLAN_NAME,
 				containedInPlace: {
-					"@type": "State",
-					name: "Nevada",
-					addressCountry: "US",
+					"@type": "City",
+					name: "North Las Vegas",
+					containedInPlace: {
+						"@type": "State",
+						name: "Nevada",
+						addressCountry: "US",
+					},
 				},
 			},
 			{

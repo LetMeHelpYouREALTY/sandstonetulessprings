@@ -53,7 +53,7 @@ export const SITE_PAGES = {
 		title: "Sandstone Tule Springs Homes | North Las Vegas",
 		description:
 			"Buyer representation for Sandstone Tule Springs homes in North Las Vegas (89084). KB Home Landings, resale, and tours with Dr. Jan Duffy. (702) 466-1509.",
-		h1: `${SITE_GBP_BRAND_NAME} — luxury home guidance in North Las Vegas`,
+		h1: "Sandstone Tule Springs — calm, clear guidance for new-home buyers",
 		keywords: [
 			SITE_BUSINESS_NAME,
 			PRIMARY_HOME_SEARCH_QUERY,
