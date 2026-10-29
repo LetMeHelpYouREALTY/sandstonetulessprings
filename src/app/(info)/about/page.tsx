@@ -58,7 +58,7 @@ export default function AboutPage() {
 					Who is {AGENT_NAME}?
 				</h2>
 				<p>
-					{AGENT_NAME} is a Top 1% Las Vegas REALTOR®, in real estate since 1983. She represents home buyers — not KB Home — for new
+					{AGENT_NAME} is a Las Vegas REALTOR®, licensed since 2008 · 35 years in Las Vegas. She represents home buyers — not KB Home — for new
 					construction and resale in the Sandstone at Tule Springs area, including
 					showings near the homes sales area in zip code 89084.
 				</p>
