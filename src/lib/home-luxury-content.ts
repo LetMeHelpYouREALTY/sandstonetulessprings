@@ -16,11 +16,11 @@ export type LuxuryCard = {
 
 export const TRUST_SIGNALS = [
 		{
-		value: "Top 1%",
-		label: "Las Vegas REALTOR®",
+		value: "5.0★",
+		label: "Realtor.com (50 reviews)",
 	},
 	{
-		value: "Since 1983",
+		value: "Since 2008",
 		label: `${AGENT_NAME} in real estate`,
 	},
 	{
