@@ -55,7 +55,6 @@ export function buildGbpOfficeLocationFields(): Record<string, unknown> {
 
 /** Hours, phone, and optional aggregate rating — shared by Organization and RealEstateAgent. */
 export function buildGbpServiceFields(): Record<string, unknown> {
-	const aggregateRating = buildOptionalAggregateRating();
 	const telephone = getGbpPhoneE164();
 
 	return {
@@ -68,7 +67,6 @@ export function buildGbpServiceFields(): Record<string, unknown> {
 			areaServed: "US",
 			availableLanguage: ["English"],
 		},
-		...(aggregateRating ? { aggregateRating } : {}),
 	};
 }
 
