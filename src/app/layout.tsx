@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildRootMetadata } from "@/lib/metadata/root-metadata";
 import { buildSiteGraphJsonLd } from "@/lib/schema/site-graph";
 import "./globals.css";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
 const playfair = Playfair_Display({
 	subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({
 				{children}
 				<SiteFooter />
 				<SpeedInsights />
+			  <VercelAnalytics />
 			</body>
 		</html>
 	);
