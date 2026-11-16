@@ -116,6 +116,23 @@ export const BUYER_FAQ = [
 
 export const ALL_SITE_FAQ = [...COMMUNITY_FAQ, ...BUYER_FAQ] as const;
 
+/** Master-plan FAQs rendered on /sandstone-at-tule-springs only (not /faq). */
+export const MASTER_PLAN_FAQ = [
+	{
+		question: "How big is the Sandstone master plan?",
+		answer:
+			"KB Home's Sept. 4, 2026 announcement describes Sandstone as nearly 300 acres in North Las Vegas, with four new communities and more than 1,500 homes planned.",
+	},
+	{
+		question: "Which Sandstone communities are open?",
+		answer:
+			"As of KB Home's Sept. 4, 2026 announcement, Landings and Reserves are open, and Meadows and Gardens are under construction. Ask Dr. Jan Duffy for current status before a tour.",
+	},
+] as const;
+
+export const KB_HOME_SANDSTONE_PRESS_RELEASE_URL =
+	"https://www.prnewswire.com/news-releases/kb-home-opens-sandstone-a-new-master-planned-community-of-over-1-500-homes-in-a-prime-north-las-vegas-location-302870298.html";
+
 export function buildCommunityFaqJsonLd(
 	items: readonly { question: string; answer: string }[] = COMMUNITY_FAQ,
 ): Record<string, unknown> {

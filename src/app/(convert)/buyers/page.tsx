@@ -13,7 +13,18 @@ import {
 } from "@/lib/site-contact";
 import { SITE_PAGES } from "@/lib/site-pages";
 
-export const metadata: Metadata = buildPageMetadata(SITE_PAGES.buyers);
+const base = buildPageMetadata(SITE_PAGES.buyers);
+export const metadata: Metadata = {
+	...base,
+	title: {
+		absolute: "Sandstone at Tule Springs Buyer's Agent | Dr. Jan Duffy",
+	},
+	description:
+		"Why use a buyer's agent for KB Home's Sandstone at Tule Springs in North Las Vegas 89084, and how to start with Dr. Jan Duffy.",
+};
+
+const SELL_FIRST_CALENDLY_URL =
+	"https://calendly.com/drjanduffy/listing-consultation?utm_source=sandstonetulessprings.com&utm_medium=website&utm_campaign=buyers&utm_content=buyers-sell-first";
 
 export default function BuyersPage() {
 	return (
@@ -69,7 +80,24 @@ export default function BuyersPage() {
 					</a>
 				</p>
 			</section>
-			
+			<section className="space-y-3" aria-labelledby="sell-first">
+				<h2 id="sell-first" className="font-display text-[length:var(--text-xl)] text-lux-text">
+					Selling before you buy
+				</h2>
+				<p>
+					<a
+						className="underline underline-offset-4"
+						href={SELL_FIRST_CALENDLY_URL}
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						Selling a home before you buy at Sandstone? Plan the sale with Dr. Jan
+						Duffy.
+					</a>
+					<span className="sr-only"> (opens Calendly in a new tab)</span>
+				</p>
+			</section>
+
 			<PageLinks
 				pages={[SITE_PAGES.newHomes, SITE_PAGES.visit, SITE_PAGES.faq, SITE_PAGES.contact]}
 				title="Related pages"
