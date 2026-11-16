@@ -93,8 +93,8 @@ export default function BuyersPage() {
 					>
 						Selling a home before you buy at Sandstone? Plan the sale with Dr. Jan
 						Duffy.
+						<span className="sr-only"> (opens Calendly in a new tab)</span>
 					</a>
-					<span className="sr-only"> (opens Calendly in a new tab)</span>
 				</p>
 			</section>
 
